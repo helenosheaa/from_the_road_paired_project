@@ -1,10 +1,7 @@
 package db.helpers;
 
 import db.DBHelper;
-import models.Article;
-import models.Category;
-import models.Tag;
-import models.Visitor;
+import models.*;
 
 import java.util.List;
 
@@ -64,6 +61,10 @@ public class DBArticle extends DBHelper {
 
     public static List<Article> getArticlesByVisit(){
         return orderByCriterion("visitCounter", Article.class, false);
+    }
+
+    public static Writer getWriterForArticle(Article article){
+        return getAnAssociationForAnObject(article, Writer.class, "articles");
     }
 
 }

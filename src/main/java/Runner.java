@@ -37,6 +37,8 @@ public class Runner {
         List<Article> foundArticles = DBWriter.getArticlesForWriter(writer);
 
         Article foundArticle = DBArticle.find(article.getId());
+        Writer articleWriter = DBArticle.getWriterForArticle(foundArticle);
+
 //        List<Tag> foundTags = DBArticle.getTagsForArticle(foundArticle);
 //        List<Category> foundCategories = DBArticle.getCategoriesForArticle(foundArticle);
         List<Article> foundCategoryArticles = DBCategory.getArticlesForCategory(category);
