@@ -110,9 +110,6 @@ public class Article implements IDB {
     public void addCategory(Category category){
         this.categories.add(category);
     }
-    public void removeCategory(Category category){
-        this.categories.remove(category);
-    }
 
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @ManyToMany
@@ -127,9 +124,6 @@ public class Article implements IDB {
     }
     public void addTag(Tag tag){
         this.tags.add(tag);
-    }
-    public void removeTag(Tag tag){
-        this.tags.remove(tag);
     }
 
     @Column(name = "visit_counter")

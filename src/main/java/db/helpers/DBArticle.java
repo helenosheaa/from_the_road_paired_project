@@ -27,7 +27,9 @@ public class DBArticle extends DBHelper {
     }
 
     public static void removeTagFromArticle(Article article, Tag tag){
-        article.removeTag(tag);
+        List<Tag> tags = DBArticle.getTagsForArticle(article);
+        tags.remove(tag);
+        article.setTags(tags);
         update(article);
     }
 
@@ -35,8 +37,15 @@ public class DBArticle extends DBHelper {
         return getAssociationsForAnObject(article, Category.class, "articles");
     }
 
-    public static void removeCategoryFromArticle(Article article, Category category){
-        article.removeCategory(category);
+    public static void removeCategoryFromArticle(Article article, Category removeCategory){
+        List<Category> categories = DBArticle.getCategoriesForArticle(article);
+        for(Category category : categories){
+            if(category.getId() == removeCategory.getId()){
+                removeCategory = category;
+            }
+        }
+        categories.remove(removeCategory);
+        article.setCategories(categories);
         update(article);
     }
 
