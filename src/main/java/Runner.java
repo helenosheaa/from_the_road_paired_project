@@ -29,9 +29,6 @@ public class Runner {
         Article article1 = new Article("Travelling", writer, "content", "summary" );
         DBHelper.save(article1);
 
-        Article article2 = new Article("Travelling", writer, "content", "summary" );
-        DBHelper.save(article1);
-
         article1.addTag(tag);
         article1.addCategory(category);
 

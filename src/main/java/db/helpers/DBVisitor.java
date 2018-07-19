@@ -30,25 +30,25 @@ public class DBVisitor extends DBHelper {
         return getAssociationsForAnObject(visitor, Article.class, "visitorSaves");
     }
 
-    public static List<Writer> getFavouriteAuthorForVisitor(Visitor visitor){
-        List<Article> vistorsSavedArticles = getSavedArticlesForVisitor(visitor);
-        // Might need to create a collection of article IDs
-        session = HibernateUtil.getSessionFactory().openSession();
-        List<Writer> authors = null;
-
-        try{
-            Criteria writerCrieria = session.createCriteria(Writer.class);
-            writerCrieria.createAlias("articles", "article");
-            writerCrieria.add(Restrictions.in("article", vistorsSavedArticles));
-            writerCrieria.setProjection(Projections.alias(Projections.count("name"), "author_freq"));
-            writerCrieria.addOrder(Order.desc("author_freq"));
-            authors = writerCrieria.list();
-        }catch (Throwable e){
-            e.printStackTrace();
-        }finally{
-            session.close();
-        }
-        return authors;
-    }
+//    public static List<Writer> getFavouriteAuthorForVisitor(Visitor visitor){
+//        List<Article> vistorsSavedArticles = getSavedArticlesForVisitor(visitor);
+//        // Might need to create a collection of article IDs
+//        session = HibernateUtil.getSessionFactory().openSession();
+//        List<Writer> authors = null;
+//
+//        try{
+//            Criteria writerCrieria = session.createCriteria(Writer.class);
+//            writerCrieria.createAlias("articles", "article");
+//            writerCrieria.add(Restrictions.in("article", vistorsSavedArticles));
+//            writerCrieria.setProjection(Projections.alias(Projections.count("name"), "author_freq"));
+//            writerCrieria.addOrder(Order.desc("author_freq"));
+//            authors = writerCrieria.list();
+//        }catch (Throwable e){
+//            e.printStackTrace();
+//        }finally{
+//            session.close();
+//        }
+//        return authors;
+//    }
 
 }
