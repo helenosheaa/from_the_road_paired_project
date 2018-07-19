@@ -1,6 +1,7 @@
 package models;
 
 import behaviours.IDB;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.List;
@@ -11,7 +12,7 @@ public class Visitor implements IDB {
 
     private int id;
     private String name;
-//    private List<Article> savedArticles;
+    private List<Article> savedArticles;
 
     public Visitor(String name) {
         this.name = name;
@@ -42,11 +43,16 @@ public class Visitor implements IDB {
         this.name = name;
     }
 
-//    public List<Article> getSavedArticles() {
-//        return savedArticles;
-//    }
-//
-//    public void setSavedArticles(List<Article> savedArticles) {
-//        this.savedArticles = savedArticles;
-//    }
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @ManyToMany
+    @JoinTable(name = "articles_visitors",
+            joinColumns = {@JoinColumn (name = "visitor_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "article_id", nullable = false, updatable = false)})
+    public List<Article> getSavedArticles() {
+        return savedArticles;
+    }
+
+    public void setSavedArticles(List<Article> savedArticles) {
+        this.savedArticles = savedArticles;
+    }
 }

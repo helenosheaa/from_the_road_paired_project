@@ -20,6 +20,7 @@ public class Article implements IDB {
     private List<Category> categories;
     private List<Tag> tags;
     private int visitCounter;
+    private List<Visitor> visitorSaves;
 
     public Article() {
     }
@@ -125,5 +126,18 @@ public class Article implements IDB {
 
     public void setVisitCounter(int visitCounter) {
         this.visitCounter = visitCounter;
+    }
+
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @ManyToMany
+    @JoinTable(name = "articles_visitors",
+            joinColumns = {@JoinColumn (name = "article_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "visitor_id", nullable = false, updatable = false)})
+    public List<Visitor> getVisitorSaves() {
+        return visitorSaves;
+    }
+
+    public void setVisitorSaves(List<Visitor> visitorSaves) {
+        this.visitorSaves = visitorSaves;
     }
 }
