@@ -1,6 +1,5 @@
 package Controllers;
 
-import db.DBHelper;
 import db.helpers.DBWriter;
 import models.Writer;
 import spark.ModelAndView;
