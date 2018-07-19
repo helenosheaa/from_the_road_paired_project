@@ -105,6 +105,11 @@ public class Article implements IDB {
         this.categories = categories;
     }
 
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @ManyToMany
+    @JoinTable(name = "articles_tags",
+            joinColumns = {@JoinColumn (name = "article_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "tag_id", nullable = false, updatable = false)})
     public List<Tag> getTags() {
         return tags;
     }
