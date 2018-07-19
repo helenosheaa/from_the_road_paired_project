@@ -1,0 +1,16 @@
+<p class="pageHeader">All Visitors</p>
+
+<div class="container">
+    <table>
+        <tr>
+            <th>Name</th>
+        </tr>
+        #foreach($visitor in $visitors)
+        <tr>
+            <td>$visitor.getName()</td>
+        </tr>
+        #end
+    </table>
+
+
+</div>
