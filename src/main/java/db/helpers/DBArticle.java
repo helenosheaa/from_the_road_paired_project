@@ -26,9 +26,14 @@ public class DBArticle extends DBHelper {
         return getAssociationsForAnObject(article, Tag.class, "articles");
     }
 
-    public static void removeTagFromArticle(Article article, Tag tag){
+    public static void removeTagFromArticle(Article article, Tag removeTag){
         List<Tag> tags = DBArticle.getTagsForArticle(article);
-        tags.remove(tag);
+        for(Tag tag : tags){
+            if(tag.getId() == removeTag.getId()){
+                removeTag = tag;
+            }
+        }
+        tags.remove(removeTag);
         article.setTags(tags);
         update(article);
     }

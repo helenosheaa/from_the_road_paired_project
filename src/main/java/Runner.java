@@ -37,7 +37,7 @@ public class Runner {
         List<Article> foundArticles = DBWriter.getArticlesForWriter(writer);
 
         Article foundArticle = DBArticle.find(article.getId());
-        List<Tag> foundTags = DBArticle.getTagsForArticle(foundArticle);
+//        List<Tag> foundTags = DBArticle.getTagsForArticle(foundArticle);
 //        List<Category> foundCategories = DBArticle.getCategoriesForArticle(foundArticle);
         List<Article> foundCategoryArticles = DBCategory.getArticlesForCategory(category);
         List<Article> foundTagArticles = DBTags.getArticlesForTag(tag);
@@ -46,8 +46,10 @@ public class Runner {
         DBArticle.removeTagFromArticle(foundArticle, tag);
 
         foundArticle = DBArticle.find(article.getId());
-        foundTags = DBArticle.getTagsForArticle(foundArticle);
+
         List<Category> foundCategories = DBArticle.getCategoriesForArticle(foundArticle);
+        List<Tag> foundTags = DBArticle.getTagsForArticle(foundArticle);
+
 
         System.exit(0);
     }
