@@ -1,20 +1,20 @@
-import models.Tag;
+import models.Category;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class tagTest {
+public class CategoryTest {
 
-    private Tag tag;
+    private Category category;
 
     @Before
     public void before(){
-        tag = new Tag("food");
+        category = new Category("America");
     }
 
     @Test
     public void testGetName(){
-        assertEquals("food", tag.getName());
+        assertEquals("America", category.getName());
     }
 }

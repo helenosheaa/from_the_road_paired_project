@@ -1,20 +1,20 @@
-import models.Writer;
+import models.Visitor;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class writerTest {
+public class VisitorTest {
 
-    private Writer writer;
+    private Visitor visitor;
 
     @Before
     public void before(){
-        writer = new Writer("Helen");
+        visitor = new Visitor("Stuart");
     }
 
     @Test
     public void testGetName(){
-        assertEquals("Helen", writer.getName());
+        assertEquals("Stuart", visitor.getName());
     }
 }

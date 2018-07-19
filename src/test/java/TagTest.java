@@ -1,20 +1,20 @@
-import models.Visitor;
+import models.Tag;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class visitorTest {
+public class TagTest {
 
-    private Visitor visitor;
+    private Tag tag;
 
     @Before
     public void before(){
-        visitor = new Visitor("Stuart");
+        tag = new Tag("food");
     }
 
     @Test
     public void testGetName(){
-        assertEquals("Stuart", visitor.getName());
+        assertEquals("food", tag.getName());
     }
 }

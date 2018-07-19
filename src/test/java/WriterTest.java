@@ -1,20 +1,20 @@
-import models.Category;
+import models.Writer;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class categoryTest {
+public class WriterTest {
 
-    private Category category;
+    private Writer writer;
 
     @Before
     public void before(){
-        category = new Category("America");
+        writer = new Writer("Helen");
     }
 
     @Test
     public void testGetName(){
-        assertEquals("America", category.getName());
+        assertEquals("Helen", writer.getName());
     }
 }
