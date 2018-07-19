@@ -104,9 +104,14 @@ public class Article implements IDB {
     public List<Category> getCategories() {
         return categories;
     }
-
     public void setCategories(List<Category> categories) {
         this.categories = categories;
+    }
+    public void addCategory(Category category){
+        this.categories.add(category);
+    }
+    public void removeCategory(Category category){
+        this.categories.remove(category);
     }
 
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
@@ -117,9 +122,14 @@ public class Article implements IDB {
     public List<Tag> getTags() {
         return tags;
     }
-
     public void setTags(List<Tag> tags) {
         this.tags = tags;
+    }
+    public void addTag(Tag tag){
+        this.tags.add(tag);
+    }
+    public void removeTag(Tag tag){
+        this.tags.remove(tag);
     }
 
     @Column(name = "visit_counter")
@@ -141,7 +151,6 @@ public class Article implements IDB {
     public List<Visitor> getVisitorSaves() {
         return visitorSaves;
     }
-
     public void setVisitorSaves(List<Visitor> visitorSaves) {
         this.visitorSaves = visitorSaves;
     }

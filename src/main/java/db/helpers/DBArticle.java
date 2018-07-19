@@ -26,8 +26,28 @@ public class DBArticle extends DBHelper {
         return getAssociationsForAnObject(article, Tag.class, "articles");
     }
 
+    public static void addTagToAnArticle(Article article, Tag tag){
+        article.addTag(tag);
+        update(article);
+    }
+
+    public static void removeTagFromArticle(Article article, Tag tag){
+        article.removeTag(tag);
+        update(article);
+    }
+
     public static List<Category> getCategoriesForArticle(Article article){
         return getAssociationsForAnObject(article, Category.class, "articles");
+    }
+
+    public static void addCategoryToAnArticle(Article article, Category category){
+        article.addCategory(category);
+        update(article);
+    }
+
+    public static void removeCategoryFromArticle(Article article, Category category){
+        article.removeCategory(category);
+        update(article);
     }
 
     public static List<Visitor> getVisitorsWhoHaveSavedAnArticle(Article article){
@@ -42,7 +62,4 @@ public class DBArticle extends DBHelper {
         return orderByCriterion("visitCounter", Article.class, false);
     }
 
-    public static void addTagToAnArticle(Tag tag){
-
-    }
 }
