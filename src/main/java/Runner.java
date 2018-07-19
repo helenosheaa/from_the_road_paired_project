@@ -29,8 +29,10 @@ public class Runner {
         Article article = new Article("Travelling", writer, "content", "summary" );
         DBHelper.save(article);
 
-        DBArticle.addTagToAnArticle(article, tag);
-        DBArticle.addCategoryToAnArticle(article, category);
+        article.addTag(tag);
+        article.addCategory(category);
+
+        DBHelper.update(article);
 
         List<Article> foundArticles = DBWriter.getArticlesForWriter(writer);
 
