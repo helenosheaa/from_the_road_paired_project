@@ -40,6 +40,7 @@ public class Runner {
         List<Tag> foundTags = DBArticle.getTagsForArticle(foundArticle);
         List<Category> foundCategories = DBArticle.getCategoriesForArticle(foundArticle);
         List<Article> foundCategoryArticles = DBCategory.getArticlesForCategory(category);
+        List<Article> foundTagArticles = DBTags.getArticlesForTag(tag);
 
         System.exit(0);
     }
