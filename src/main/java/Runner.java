@@ -2,6 +2,8 @@ import db.DBHelper;
 import db.helpers.*;
 import models.*;
 
+import java.util.List;
+
 public class Runner {
 
     public static void main(String[] args) {
@@ -26,6 +28,8 @@ public class Runner {
 
         Article article = new Article("Travelling", writer, "content", "summary" );
         DBHelper.save(article);
+
+        List<Article> foundArticles = DBWriter.getArticlesForWriter(writer);
 
         System.exit(0);
     }
