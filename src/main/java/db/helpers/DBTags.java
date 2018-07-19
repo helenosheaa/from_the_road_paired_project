@@ -1,4 +1,6 @@
 package db.helpers;
 
-public class DBTags {
+import db.DBHelper;
+
+public class DBTags extends DBHelper {
 }
