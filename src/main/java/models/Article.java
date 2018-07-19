@@ -4,6 +4,7 @@ import behaviours.IDB;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -32,6 +33,8 @@ public class Article implements IDB {
         this.content = content;
         this.summary = summary;
         this.visitCounter = 0;
+        this.tags = new ArrayList<>();
+        this.categories = new ArrayList<>();
     }
 
     @Id
@@ -123,9 +126,11 @@ public class Article implements IDB {
     public int getVisitCounter() {
         return visitCounter;
     }
-
     public void setVisitCounter(int visitCounter) {
         this.visitCounter = visitCounter;
+    }
+    public void indexVisitCounter(){
+        this.visitCounter += 1;
     }
 
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)

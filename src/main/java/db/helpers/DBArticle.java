@@ -41,4 +41,8 @@ public class DBArticle extends DBHelper {
     public static List<Article> getArticlesByVisit(){
         return orderByCriterion("visitCounter", Article.class, false);
     }
+
+    public static void addTagToAnArticle(Tag tag){
+
+    }
 }
