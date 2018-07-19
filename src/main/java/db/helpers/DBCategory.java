@@ -1,22 +1,27 @@
 package db.helpers;
 
 import db.DBHelper;
+import models.Article;
 import models.Category;
 
 import java.util.List;
 
 public class DBCategory extends DBHelper {
 
-    public void deleteAll(){
+    public static void deleteAll(){
         deleteAll(Category.class);
     }
 
-    public List<Category> getAll(){
+    public static List<Category> getAll(){
         return getAll(Category.class);
     }
 
-    public Category find(int id){
+    public static Category find(int id){
         return find(id, Category.class);
+    }
+
+    public static List<Article> getArticlesForCategory(Category category){
+        return getAssociationsForAnObject(category, Article.class, "categories");
     }
 
 }
