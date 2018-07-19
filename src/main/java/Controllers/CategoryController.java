@@ -1,9 +1,8 @@
 package Controllers;
 
+import db.DBHelper;
 import db.helpers.DBCategory;
-import db.helpers.DBVisitor;
 import models.Category;
-import models.Visitor;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
@@ -12,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.get;
+import static spark.Spark.post;
 
 public class CategoryController {
 
@@ -31,6 +31,17 @@ public class CategoryController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
+        post ("/categories/:id/delete", (req, res) -> {
+
+            int categoryId = Integer.parseInt(req.params(":id"));
+
+            Category category = DBCategory.find(categoryId);
+
+            DBHelper.delete(category);
+
+            res.redirect("/categories");
+            return null;
+        }, new VelocityTemplateEngine());
 
     }
 }

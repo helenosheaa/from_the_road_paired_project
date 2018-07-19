@@ -2,11 +2,12 @@ package Controllers;
 
 public class ArticleController {
 
-    public ArticleController (){
+    public ArticleController() {
         this.setupEndPoints();
     }
 
-    public void setupEndPoints(){
+    public void setupEndPoints() {
+
 
     }
 
