@@ -1,5 +1,6 @@
 package Controllers;
 
+import db.DBHelper;
 import db.helpers.DBTags;
 import models.Tag;
 import spark.ModelAndView;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.get;
+import static spark.Spark.post;
 
 public class TagController {
 
@@ -29,6 +31,17 @@ public class TagController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
+        post ("/tags/:id/delete", (req, res) -> {
+
+            int tagId = Integer.parseInt(req.params(":id"));
+
+            Tag tag = DBTags.find(tagId);
+
+            DBHelper.delete(tag);
+
+            res.redirect("/tags");
+            return null;
+        }, new VelocityTemplateEngine());
 
 
     }
