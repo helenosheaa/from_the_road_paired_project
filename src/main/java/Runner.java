@@ -26,17 +26,20 @@ public class Runner {
         Writer writer = new Writer("Helen");
         DBHelper.save(writer);
 
-        Article article = new Article("Travelling", writer, "content", "summary" );
-        DBHelper.save(article);
+        Article article1 = new Article("Travelling", writer, "content", "summary" );
+        DBHelper.save(article1);
 
-        article.addTag(tag);
-        article.addCategory(category);
+        Article article2 = new Article("Travelling", writer, "content", "summary" );
+        DBHelper.save(article1);
 
-        DBHelper.update(article);
+        article1.addTag(tag);
+        article1.addCategory(category);
+
+        DBHelper.update(article1);
 
         List<Article> foundArticles = DBWriter.getArticlesForWriter(writer);
 
-        Article foundArticle = DBArticle.find(article.getId());
+        Article foundArticle = DBArticle.find(article1.getId());
         Writer articleWriter = DBArticle.getWriterForArticle(foundArticle);
 
 //        List<Tag> foundTags = DBArticle.getTagsForArticle(foundArticle);
@@ -47,7 +50,7 @@ public class Runner {
         DBArticle.removeCategoryFromArticle(foundArticle, category);
         DBArticle.removeTagFromArticle(foundArticle, tag);
 
-        foundArticle = DBArticle.find(article.getId());
+        foundArticle = DBArticle.find(article1.getId());
 
         List<Category> foundCategories = DBArticle.getCategoriesForArticle(foundArticle);
         List<Tag> foundTags = DBArticle.getTagsForArticle(foundArticle);
