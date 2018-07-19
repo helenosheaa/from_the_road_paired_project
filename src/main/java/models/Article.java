@@ -1,6 +1,7 @@
 package models;
 
 import behaviours.IDB;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.Calendar;
@@ -91,6 +92,11 @@ public class Article implements IDB {
         this.summary = summary;
     }
 
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @ManyToMany
+    @JoinTable(name = "articles_categories",
+    joinColumns = {@JoinColumn (name = "article_id", nullable = false, updatable = false)},
+    inverseJoinColumns = {@JoinColumn(name = "category_id", nullable = false, updatable = false)})
     public List<Category> getCategories() {
         return categories;
     }
