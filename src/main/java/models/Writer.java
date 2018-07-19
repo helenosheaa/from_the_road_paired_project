@@ -11,7 +11,7 @@ public class Writer implements IDB {
 
     private int id;
     private String name;
-//    private List<Article> articles;
+    private List<Article> articles;
 
     public Writer(){}
 
@@ -39,5 +39,12 @@ public class Writer implements IDB {
         this.name = name;
     }
 
+    @OneToMany(mappedBy = "author")
+    public List<Article> getArticles() {
+        return articles;
+    }
 
+    public void setArticles(List<Article> articles) {
+        this.articles = articles;
+    }
 }
