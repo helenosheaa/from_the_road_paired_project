@@ -24,6 +24,9 @@ public class TagController {
 
         VelocityTemplateEngine velocityTemplateEngine = new VelocityTemplateEngine();
 
+//      ADMIN--------------------------------------------ADMIN-------------------------------------------ADMIN
+
+//      INDEX
         get("/admin/tags", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/admin/tagTemplates/index.vtl");
@@ -37,6 +40,7 @@ public class TagController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 
+//      SHOW
         get("/admin/tag/:id", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/admin/categoryTemplates/index.vtl");
@@ -51,6 +55,7 @@ public class TagController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 
+//      DELETE
         post ("/tags/:id/delete", (req, res) -> {
 
             int tagId = Integer.parseInt(req.params(":id"));

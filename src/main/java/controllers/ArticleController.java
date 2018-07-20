@@ -22,6 +22,7 @@ public class ArticleController {
 
     public void setupEndPoints() {
 
+//      INDEX
         get("/articles", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/visitor/articleTemplates/index.vtl");
@@ -39,25 +40,7 @@ public class ArticleController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-        get("/admin/articles", (req, res) -> {
-            Map<String, Object> model = new HashMap();
-            model.put("template", "templates/admin/articleTemplates/index.vtl");
-
-            List<Article> articles = DBArticle.getAll();
-            model.put("articles", articles);
-
-            Map<Integer, List<Tag>> articleTags = DBArticle.getMapOfTagsForArticles();
-            model.put("articleTags", articleTags);
-
-            Map<Integer, List<Category>> articleCategories = DBArticle.getMapOfCategoriesForArticles();
-
-            model.put("articleCategories", articleCategories);
-
-            return new ModelAndView(model, "templates/layout.vtl");
-        }, new VelocityTemplateEngine());
-
-
-
+//      SHOW
         get("/article/:id", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/visitor/articleTemplates/show.vtl");
@@ -75,6 +58,27 @@ public class ArticleController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
+//      ADMIN--------------------------------------------ADMIN-------------------------------------------ADMIN
+
+//      INDEX
+        get("/admin/articles", (req, res) -> {
+            Map<String, Object> model = new HashMap();
+            model.put("template", "templates/admin/articleTemplates/index.vtl");
+
+            List<Article> articles = DBArticle.getAll();
+            model.put("articles", articles);
+
+            Map<Integer, List<Tag>> articleTags = DBArticle.getMapOfTagsForArticles();
+            model.put("articleTags", articleTags);
+
+            Map<Integer, List<Category>> articleCategories = DBArticle.getMapOfCategoriesForArticles();
+
+            model.put("articleCategories", articleCategories);
+
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
+//      SHOW
         get("/admin/article/:id", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/admin/articleTemplates/show.vtl");

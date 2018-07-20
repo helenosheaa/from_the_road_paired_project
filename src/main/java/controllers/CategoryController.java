@@ -24,6 +24,10 @@ public class CategoryController {
 
         VelocityTemplateEngine velocityTemplateEngine = new VelocityTemplateEngine();
 
+//      ADMIN--------------------------------------------ADMIN-------------------------------------------ADMIN
+
+
+//      INDEX
         get("/admin/categories", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/admin/categoryTemplates/index.vtl");
@@ -37,7 +41,7 @@ public class CategoryController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 
-
+//      SHOW
         get("/admin/category/:id", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/admin/categoryTemplates/show.vtl");
@@ -52,6 +56,7 @@ public class CategoryController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 
+//      DELETE
         post ("/categories/:id/delete", (req, res) -> {
 
             int categoryId = Integer.parseInt(req.params(":id"));
