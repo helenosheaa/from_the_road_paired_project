@@ -40,7 +40,7 @@ public class CategoryController {
 
         get("/admin/category/:id", (req, res) -> {
             Map<String, Object> model = new HashMap();
-            model.put("template", "templates/admin/categoryTemplates/index.vtl");
+            model.put("template", "templates/admin/categoryTemplates/show.vtl");
 
             int categoryId = Integer.parseInt(req.params(":id"));
             Category category = DBCategory.find(categoryId);

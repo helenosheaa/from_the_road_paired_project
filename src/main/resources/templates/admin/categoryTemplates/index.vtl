@@ -3,12 +3,12 @@
 <ul>
     #foreach($category in $categories)
     <li>
-        <h2>$category.getName()</h2>
+        <a href="/admin/category/$category.getId()"><h2>$category.getName()</h2></a>
         <ul>
             #foreach($article in $categoryArticles.get($category.getId()))
             <li>
                 <h3>$article.getTitle()</h3>
-                <p>$article.getSummary()</p>
+                <p>$article.getVisitCounter()</p>
             </li>
             #end
         </ul>
