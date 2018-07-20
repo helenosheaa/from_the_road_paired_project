@@ -5,7 +5,8 @@
             #foreach($article in $articles)
             <li>
                 <div>
-                    <h2>$article.getTitle()</h2>
+                    <a href="/article/$article.getId()"><h2>$article.getTitle()</h2></a>
+
 
                     <p>$article.getSummary()</p>
 

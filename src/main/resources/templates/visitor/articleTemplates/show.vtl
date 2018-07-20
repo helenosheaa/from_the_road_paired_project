@@ -1,0 +1,22 @@
+
+<h2>$article.getTitle()</h2>
+
+<p>$article.getSummary()</p>
+
+#foreach($category in $categories)
+    <p>$category.getName()</p>
+#end
+
+#foreach($tag in $tags)
+    <p>$tag.getName()</p>
+#end
+
+<p>$article.dateFormatted()</p>
+<p>$article.getAuthor().getName()</p>
+
+<p>$article.getContent()</p>
+
+
+
+
+
