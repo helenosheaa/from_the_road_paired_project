@@ -70,22 +70,22 @@ public class DBArticle extends DBHelper {
         return getAnAssociationForAnObject(article, Writer.class, "articles");
     }
 
-    public static Map<Article, List<Tag>> getMapOfTagsForAritcles(){
+    public static Map<Integer, List<Tag>> getMapOfTagsForArticles(){
         List<Article> articles = getAll();
-        Map<Article, List<Tag>> articlesAndTags = new HashMap<>();
+        Map<Integer, List<Tag>> articlesAndTags = new HashMap<>();
         for (Article article : articles){
             List<Tag> tags = getTagsForArticle(article);
-            articlesAndTags.put(article, tags);
+            articlesAndTags.put(article.getId(), tags);
         }
         return articlesAndTags;
     }
 
-    public static Map<Article, List<Category>> getMapOfCategoriesForAritcles(){
+    public static Map<Integer, List<Category>> getMapOfCategoriesForArticles(){
         List<Article> articles = getAll();
-        Map<Article, List<Category>> articlesAndCategories = new HashMap<>();
+        Map<Integer, List<Category>> articlesAndCategories = new HashMap<>();
         for (Article article : articles){
             List<Category> categories = getCategoriesForArticle(article);
-            articlesAndCategories.put(article, categories);
+            articlesAndCategories.put(article.getId(), categories);
         }
         return articlesAndCategories;
     }

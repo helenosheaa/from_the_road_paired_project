@@ -1,6 +1,7 @@
 package models;
 
 import behaviours.IDB;
+import db.DateHandler;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -75,6 +76,10 @@ public class Article implements IDB {
     }
     public void setDate(Calendar date) {
         this.date = date;
+    }
+
+    public String dateFormatted() {
+        return DateHandler.formatForDisplay(this.date);
     }
 
     @Column(name = "content")

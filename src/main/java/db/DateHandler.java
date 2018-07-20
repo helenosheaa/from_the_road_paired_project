@@ -7,7 +7,7 @@ import java.util.Date;
 
 public abstract class DateHandler {
 
-    private static SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy 'at' HH:mm");
+    private static SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
     public static Calendar formatForProgram(String dateTime) throws ParseException {
         Date dateDate = dateFormat.parse(dateTime);

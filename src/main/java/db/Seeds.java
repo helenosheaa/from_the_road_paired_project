@@ -41,8 +41,7 @@ public class Seeds {
         article1.addCategory(category);
 
         DBHelper.update(article1);
-
-        DBVisitor.saveArticleForVisitor(visitor, article1);
+//        DBVisitor.saveArticleForVisitor(visitor, article1);
 
     }
 

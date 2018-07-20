@@ -46,7 +46,7 @@ public class Runner {
         Article foundArticle = DBArticle.find(article1.getId());
         Writer articleWriter = DBArticle.getWriterForArticle(foundArticle);
 
-        DBVisitor.saveArticleForVisitor(visitor, article1);
+        DBVisitor.saveArticleForVisitor(visitor, foundArticle);
         Visitor foundVisitor = DBVisitor.find(visitor.getId());
         List<Article> foundSavedArticles = DBVisitor.getSavedArticlesForVisitor(foundVisitor);
 
@@ -56,8 +56,8 @@ public class Runner {
         List<Article> foundCategoryArticles = DBCategory.getArticlesForCategory(category);
         List<Article> foundTagArticles = DBTag.getArticlesForTag(tag);
 
-        DBArticle.removeCategoryFromArticle(foundArticle, category);
-        DBArticle.removeTagFromArticle(foundArticle, tag);
+//        DBArticle.removeCategoryFromArticle(foundArticle, category);
+//        DBArticle.removeTagFromArticle(foundArticle, tag);
 
         foundArticle = DBArticle.find(article1.getId());
 

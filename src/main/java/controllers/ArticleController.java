@@ -1,7 +1,6 @@
 package controllers;
 
 import db.helpers.DBArticle;
-import db.helpers.DBCategory;
 import models.Article;
 import models.Category;
 import models.Tag;
@@ -29,10 +28,10 @@ public class ArticleController {
             List<Article> articles = DBArticle.getAll();
             model.put("articles", articles);
 
-            Map<Article, List<Tag>> articleTags = DBArticle.getMapOfTagsForAritcles();
+            Map<Integer, List<Tag>> articleTags = DBArticle.getMapOfTagsForArticles();
             model.put("articleTags", articleTags);
 
-            Map<Article, List<Category>> articleCategories = DBArticle.getMapOfCategoriesForAritcles();
+            Map<Integer, List<Category>> articleCategories = DBArticle.getMapOfCategoriesForArticles();
 
             model.put("articleCategories", articleCategories);
 
