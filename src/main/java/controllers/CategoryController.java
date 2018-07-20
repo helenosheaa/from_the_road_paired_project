@@ -1,4 +1,4 @@
-package Controllers;
+package controllers;
 
 import db.DBHelper;
 import db.helpers.DBCategory;

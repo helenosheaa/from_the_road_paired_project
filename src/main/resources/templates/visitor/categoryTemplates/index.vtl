@@ -1,0 +1,19 @@
+<p class="pageHeader">All Categories</p>
+
+<div class="container">
+    <table>
+        <tr>
+            <th>Name</th>
+        </tr>
+        #foreach($category in $categories)
+        <tr>
+            <td>$category.getName()</td>
+            <td> <form action="/categories/$category.getId()/delete" method="POST">
+            <input type="submit" value="Delete Category"/>
+        </form></td>
+        </tr>
+        #end
+    </table>
+
+
+</div>

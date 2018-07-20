@@ -1,10 +1,8 @@
-package Controllers;
+package controllers;
 
 import db.DBHelper;
 import db.helpers.DBVisitor;
-import db.helpers.DBWriter;
 import models.Visitor;
-import models.Writer;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
@@ -15,35 +13,36 @@ import java.util.Map;
 import static spark.Spark.get;
 import static spark.Spark.post;
 
-public class WriterController {
+public class VisitorController {
 
-    public WriterController (){
+    public VisitorController (){
         this.setupEndPoints();
     }
 
     public void setupEndPoints(){
 
-        get("/writers", (req, res) -> {
+        get("/visitors", (req, res) -> {
             Map<String, Object> model = new HashMap();
-            model.put("template", "templates/writerTemplates/index.vtl");
+            model.put("template", "templates/visitorTemplates/index.vtl");
 
-            List<Writer> writers = DBWriter.getAll();
-            model.put("writers", writers);
+            List<Visitor> visitors = DBVisitor.getAll();
+            model.put("visitors", visitors);
 
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-        post ("/writers/:id/delete", (req, res) -> {
+        post ("/visitors/:id/delete", (req, res) -> {
 
-            int writerId = Integer.parseInt(req.params(":id"));
+            int visitorId = Integer.parseInt(req.params(":id"));
 
-            Writer writer = DBWriter.find(writerId);
+            Visitor visitor = DBVisitor.find(visitorId);
 
-            DBHelper.delete(writer);
+            DBHelper.delete(visitor);
 
-            res.redirect("/writers");
+            res.redirect("/visitors");
             return null;
         }, new VelocityTemplateEngine());
+
 
 
     }
