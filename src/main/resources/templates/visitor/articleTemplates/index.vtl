@@ -9,11 +9,16 @@
 
                     <p>$article.getSummary()</p>
 
-                    <p>$article.getCategories()</p>
-                    <p>$article.getTags()</p>
+                    #foreach($category in $articleCategories.get($article))
+                        <p>$category.getName()</p>
+                    #end
 
-                    <p>$article.getDate()</p>
-                    <p>$article.getAuthor()</p>
+                    #foreach($tag in $articleTags.get($article))
+                        <p>$tag.getName()</p>
+                    #end
+
+                    <p>$article.getDate().toString()</p>
+                    <p>$article.getAuthor().getName()</p>
                 </div>
 
             </li>
