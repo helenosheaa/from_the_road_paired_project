@@ -73,7 +73,6 @@ public class Article implements IDB {
     public Calendar getDate() {
         return date;
     }
-
     public void setDate(Calendar date) {
         this.date = date;
     }
@@ -82,7 +81,6 @@ public class Article implements IDB {
     public String getContent() {
         return content;
     }
-
     public void setContent(String content) {
         this.content = content;
     }

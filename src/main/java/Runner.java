@@ -23,18 +23,29 @@ public class Runner {
         Visitor visitor = new Visitor("Stuart");
         DBHelper.save(visitor);
 
-        Writer writer = new Writer("Helen");
-        DBHelper.save(writer);
+        Writer writer1 = new Writer("Helen");
+        DBHelper.save(writer1);
 
-        Article article1 = new Article("Travelling", writer, "content", "summary" );
+        Writer writer2 = new Writer("Ron");
+        DBHelper.save(writer2);
+
+        Article article1 = new Article("Travelling", writer1, "content", "summary" );
         DBHelper.save(article1);
+
+        Article article2 = new Article("Wandering", writer2, "content", "summary" );
+        DBHelper.save(article2);
+
+        Article article3 = new Article("Road Trip", writer1, "content", "summary" );
+        DBHelper.save(article3);
 
         article1.addTag(tag);
         article1.addCategory(category);
 
         DBHelper.update(article1);
 
-        List<Article> foundArticles = DBWriter.getArticlesForWriter(writer);
+        DBVisitor.saveArticleForVisitor(visitor, article1);
+
+        List<Article> foundArticles = DBWriter.getArticlesForWriter(writer1);
 
         Article foundArticle = DBArticle.find(article1.getId());
         Writer articleWriter = DBArticle.getWriterForArticle(foundArticle);

@@ -30,6 +30,11 @@ public class DBVisitor extends DBHelper {
         return getAssociationsForAnObject(visitor, Article.class, "visitorSaves");
     }
 
+    public static void saveArticleForVisitor(Visitor visitor, Article article){
+        visitor.saveArticle(article);
+        update(article);
+    }
+
 //    public static List<Writer> getFavouriteAuthorForVisitor(Visitor visitor){
 //        List<Article> vistorsSavedArticles = getSavedArticlesForVisitor(visitor);
 //        // Might need to create a collection of article IDs
