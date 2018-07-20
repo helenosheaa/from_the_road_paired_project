@@ -23,10 +23,10 @@ public class Runner {
         Visitor visitor = new Visitor("Stuart");
         DBHelper.save(visitor);
 
-        Writer writer1 = new Writer("Helen");
+        Writer writer1 = new Writer("Helen", "blurb");
         DBHelper.save(writer1);
 
-        Writer writer2 = new Writer("Ron");
+        Writer writer2 = new Writer("Ron", "blurb");
         DBHelper.save(writer2);
 
         Article article1 = new Article("Travelling", writer1, "content", "summary" );

@@ -11,12 +11,14 @@ public class Writer implements IDB {
 
     private int id;
     private String name;
+    private String blurb;
     private List<Article> articles;
 
     public Writer(){}
 
-    public Writer(String name){
+    public Writer(String name, String blurb){
         this.name = name;
+        this.blurb = blurb;
     }
 
     @Override
@@ -46,5 +48,14 @@ public class Writer implements IDB {
 
     public void setArticles(List<Article> articles) {
         this.articles = articles;
+    }
+
+    @Column(name = "blurb")
+    public String getBlurb() {
+        return blurb;
+    }
+
+    public void setBlurb(String blurb) {
+        this.blurb = blurb;
     }
 }
