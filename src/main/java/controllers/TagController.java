@@ -56,7 +56,7 @@ public class TagController {
         }, velocityTemplateEngine);
 
 //      DELETE
-        post ("/tags/:id/delete", (req, res) -> {
+        post ("/admin/tags/:id/delete", (req, res) -> {
 
             int tagId = Integer.parseInt(req.params(":id"));
 
@@ -64,7 +64,7 @@ public class TagController {
 
             DBHelper.delete(tag);
 
-            res.redirect("/tags");
+            res.redirect("/admin/tags");
             return null;
         }, velocityTemplateEngine);
 

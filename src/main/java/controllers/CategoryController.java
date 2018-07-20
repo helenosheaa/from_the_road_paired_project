@@ -57,7 +57,7 @@ public class CategoryController {
         }, velocityTemplateEngine);
 
 //      DELETE
-        post ("/categories/:id/delete", (req, res) -> {
+        post ("/admin/categories/:id/delete", (req, res) -> {
 
             int categoryId = Integer.parseInt(req.params(":id"));
 
@@ -65,7 +65,7 @@ public class CategoryController {
 
             DBHelper.delete(category);
 
-            res.redirect("/categories");
+            res.redirect("/admin/categories");
             return null;
         }, new VelocityTemplateEngine());
 
