@@ -51,8 +51,10 @@ public class Visitor implements IDB {
     public List<Article> getSavedArticles() {
         return savedArticles;
     }
-
     public void setSavedArticles(List<Article> savedArticles) {
         this.savedArticles = savedArticles;
+    }
+    public void saveArticle(Article article){
+        this.savedArticles.add(article);
     }
 }

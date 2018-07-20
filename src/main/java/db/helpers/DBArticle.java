@@ -1,10 +1,7 @@
 package db.helpers;
 
 import db.DBHelper;
-import models.Article;
-import models.Category;
-import models.Tag;
-import models.Visitor;
+import models.*;
 
 import java.util.List;
 
@@ -26,8 +23,32 @@ public class DBArticle extends DBHelper {
         return getAssociationsForAnObject(article, Tag.class, "articles");
     }
 
+    public static void removeTagFromArticle(Article article, Tag removeTag){
+        List<Tag> tags = DBArticle.getTagsForArticle(article);
+        for(Tag tag : tags){
+            if(tag.getId() == removeTag.getId()){
+                removeTag = tag;
+            }
+        }
+        tags.remove(removeTag);
+        article.setTags(tags);
+        update(article);
+    }
+
     public static List<Category> getCategoriesForArticle(Article article){
         return getAssociationsForAnObject(article, Category.class, "articles");
+    }
+
+    public static void removeCategoryFromArticle(Article article, Category removeCategory){
+        List<Category> categories = DBArticle.getCategoriesForArticle(article);
+        for(Category category : categories){
+            if(category.getId() == removeCategory.getId()){
+                removeCategory = category;
+            }
+        }
+        categories.remove(removeCategory);
+        article.setCategories(categories);
+        update(article);
     }
 
     public static List<Visitor> getVisitorsWhoHaveSavedAnArticle(Article article){
@@ -41,4 +62,9 @@ public class DBArticle extends DBHelper {
     public static List<Article> getArticlesByVisit(){
         return orderByCriterion("visitCounter", Article.class, false);
     }
+
+    public static Writer getWriterForArticle(Article article){
+        return getAnAssociationForAnObject(article, Writer.class, "articles");
+    }
+
 }

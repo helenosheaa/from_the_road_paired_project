@@ -101,7 +101,6 @@ public class DBHelper {
             cr.add(Restrictions.eq("id", id));
             result = (T) cr.uniqueResult();
         } catch(Throwable e){
-            transaction.rollback();
             e.printStackTrace();
         } finally {
             session.close();
@@ -122,7 +121,6 @@ public class DBHelper {
             }
             results = cr.list();
         }catch (Throwable e){
-            transaction.rollback();
             e.printStackTrace();
         }finally{
             session.close();
@@ -135,12 +133,10 @@ public class DBHelper {
         session = HibernateUtil.getSessionFactory().openSession();
 
         try{
-            transaction = session.beginTransaction();
             Criteria cr = session.createCriteria(searchingClass);
             cr.setProjection(Projections.avg(columnName));
             average = (Double) cr.uniqueResult();
         }catch (Throwable e){
-            transaction.rollback();
             e.printStackTrace();
         }finally {
             session.close();
@@ -163,5 +159,22 @@ public class DBHelper {
             session.close();
         }
         return results;
+    }
+
+    protected static <OBJECT extends IDB, ASSOCIATION> ASSOCIATION getAnAssociationForAnObject(OBJECT object, Class<ASSOCIATION> associationClass, String associationsRelationshipList){
+        ASSOCIATION result = null;
+        session = HibernateUtil.getSessionFactory().openSession();
+
+        try {
+            Criteria cr = session.createCriteria(associationClass);
+            cr.createAlias(associationsRelationshipList, "single_object");
+            cr.add(Restrictions.eq("single_object.id", object.getId()));
+            result = (ASSOCIATION)cr.uniqueResult();
+        }catch (HibernateException e){
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+        return result;
     }
 }

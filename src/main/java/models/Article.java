@@ -4,6 +4,7 @@ import behaviours.IDB;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -32,6 +33,8 @@ public class Article implements IDB {
         this.content = content;
         this.summary = summary;
         this.visitCounter = 0;
+        this.tags = new ArrayList<>();
+        this.categories = new ArrayList<>();
     }
 
     @Id
@@ -70,7 +73,6 @@ public class Article implements IDB {
     public Calendar getDate() {
         return date;
     }
-
     public void setDate(Calendar date) {
         this.date = date;
     }
@@ -79,7 +81,6 @@ public class Article implements IDB {
     public String getContent() {
         return content;
     }
-
     public void setContent(String content) {
         this.content = content;
     }
@@ -101,9 +102,11 @@ public class Article implements IDB {
     public List<Category> getCategories() {
         return categories;
     }
-
     public void setCategories(List<Category> categories) {
         this.categories = categories;
+    }
+    public void addCategory(Category category){
+        this.categories.add(category);
     }
 
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
@@ -114,18 +117,22 @@ public class Article implements IDB {
     public List<Tag> getTags() {
         return tags;
     }
-
     public void setTags(List<Tag> tags) {
         this.tags = tags;
+    }
+    public void addTag(Tag tag){
+        this.tags.add(tag);
     }
 
     @Column(name = "visit_counter")
     public int getVisitCounter() {
         return visitCounter;
     }
-
     public void setVisitCounter(int visitCounter) {
         this.visitCounter = visitCounter;
+    }
+    public void indexVisitCounter(){
+        this.visitCounter += 1;
     }
 
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
@@ -136,7 +143,6 @@ public class Article implements IDB {
     public List<Visitor> getVisitorSaves() {
         return visitorSaves;
     }
-
     public void setVisitorSaves(List<Visitor> visitorSaves) {
         this.visitorSaves = visitorSaves;
     }

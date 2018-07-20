@@ -37,4 +37,15 @@ public class ArticleTest {
         assertEquals("summary", article.getSummary());
     }
 
+    @Test
+    public void testGetVisitorCount(){
+        assertEquals(0, article.getVisitCounter());
+    }
+
+    @Test
+    public void testIndexVisitorCounter(){
+        article.indexVisitCounter();
+        assertEquals(1, article.getVisitCounter());
+    }
+
 }
