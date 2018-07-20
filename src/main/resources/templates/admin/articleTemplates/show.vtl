@@ -1,0 +1,17 @@
+<h2>$article.getTitle()</h2>
+
+#foreach($category in $categories)
+<p class="article_category_name">$category.getName()</p>
+#end
+
+#foreach($tag in $tags)
+<p class="article_tag_name">$tag.getName()</p>
+#end
+
+<p>$article.dateFormatted()</p>
+<p>$article.getAuthor().getName()</p>
+<p>$article.getVisitCounter()</p>
+
+<p>$article.getSummary()</p>
+
+<p>$article.getContent()</p>
