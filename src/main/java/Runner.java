@@ -11,7 +11,7 @@ public class Runner {
         DBWriter.deleteAll();
         DBArticle.deleteAll();
         DBCategory.deleteAll();
-        DBTags.deleteAll();
+        DBTag.deleteAll();
         DBVisitor.deleteAll();
 
         Category category = new Category("America");
@@ -53,7 +53,7 @@ public class Runner {
 //        List<Tag> foundTags = DBArticle.getTagsForArticle(foundArticle);
 //        List<Category> foundCategories = DBArticle.getCategoriesForArticle(foundArticle);
         List<Article> foundCategoryArticles = DBCategory.getArticlesForCategory(category);
-        List<Article> foundTagArticles = DBTags.getArticlesForTag(tag);
+        List<Article> foundTagArticles = DBTag.getArticlesForTag(tag);
 
         DBArticle.removeCategoryFromArticle(foundArticle, category);
         DBArticle.removeTagFromArticle(foundArticle, tag);

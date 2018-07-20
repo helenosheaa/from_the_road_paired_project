@@ -1,7 +1,7 @@
 package Controllers;
 
 import db.DBHelper;
-import db.helpers.DBTags;
+import db.helpers.DBTag;
 import models.Tag;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -25,7 +25,7 @@ public class TagController {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/tagTemplates/index.vtl");
 
-            List<Tag> tags = DBTags.getAll();
+            List<Tag> tags = DBTag.getAll();
             model.put("tags", tags);
 
             return new ModelAndView(model, "templates/layout.vtl");
@@ -35,7 +35,7 @@ public class TagController {
 
             int tagId = Integer.parseInt(req.params(":id"));
 
-            Tag tag = DBTags.find(tagId);
+            Tag tag = DBTag.find(tagId);
 
             DBHelper.delete(tag);
 
