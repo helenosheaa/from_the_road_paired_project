@@ -1,10 +1,14 @@
 package db.helpers;
 
+import behaviours.IDB;
 import db.DBHelper;
 import models.Article;
+import models.Category;
 import models.Tag;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DBTag extends DBHelper {
 
@@ -22,6 +26,10 @@ public class DBTag extends DBHelper {
 
     public static List<Article> getArticlesForTag(Tag tag){
         return getAssociationsForAnObject(tag, Article.class, "tags");
+    }
+
+    public static Map<Integer, List<Article>> getMapOfArticlesForTags(){
+        return getMapOfAssociationsForObjects(Tag.class, Article.class, "tags");
     }
 
 }

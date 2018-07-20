@@ -21,12 +21,14 @@ public class CategoryController {
 
     public void setupEndPoints(){
 
-        get("/categories", (req, res) -> {
+        get("/admin/categories", (req, res) -> {
             Map<String, Object> model = new HashMap();
-            model.put("template", "templates/categoryTemplates/index.vtl");
+            model.put("template", "templates/admin/categoryTemplates/index.vtl");
 
             List<Category> categories = DBCategory.getAll();
             model.put("categories", categories);
+
+
 
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());

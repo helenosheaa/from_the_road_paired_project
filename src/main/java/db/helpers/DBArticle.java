@@ -71,23 +71,11 @@ public class DBArticle extends DBHelper {
     }
 
     public static Map<Integer, List<Tag>> getMapOfTagsForArticles(){
-        List<Article> articles = getAll();
-        Map<Integer, List<Tag>> articlesAndTags = new HashMap<>();
-        for (Article article : articles){
-            List<Tag> tags = getTagsForArticle(article);
-            articlesAndTags.put(article.getId(), tags);
-        }
-        return articlesAndTags;
+        return getMapOfAssociationsForObjects(Article.class, Tag.class, "articles");
     }
 
     public static Map<Integer, List<Category>> getMapOfCategoriesForArticles(){
-        List<Article> articles = getAll();
-        Map<Integer, List<Category>> articlesAndCategories = new HashMap<>();
-        for (Article article : articles){
-            List<Category> categories = getCategoriesForArticle(article);
-            articlesAndCategories.put(article.getId(), categories);
-        }
-        return articlesAndCategories;
+        return getMapOfAssociationsForObjects(Article.class, Category.class, "articles");
     }
 
 }

@@ -9,7 +9,9 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DBHelper {
 
@@ -176,5 +178,16 @@ public class DBHelper {
             session.close();
         }
         return result;
+    }
+
+
+    protected static <OBJECT extends IDB, ASSOCIATION> Map<Integer, List<ASSOCIATION>> getMapOfAssociationsForObjects(Class<OBJECT> objectClass, Class<ASSOCIATION> associationClass, String associationsRelationshipList){
+        List<OBJECT> objects = getAll(objectClass);
+        Map<Integer, List<ASSOCIATION>> objectsAndAssociations = new HashMap<>();
+        for(OBJECT object : objects){
+            List<ASSOCIATION> associations = getAssociationsForAnObject(object, associationClass, associationsRelationshipList);
+            objectsAndAssociations.put(object.getId(), associations);
+        }
+        return objectsAndAssociations;
     }
 }

@@ -5,6 +5,7 @@ import models.Article;
 import models.Category;
 
 import java.util.List;
+import java.util.Map;
 
 public class DBCategory extends DBHelper {
 
@@ -22,6 +23,10 @@ public class DBCategory extends DBHelper {
 
     public static List<Article> getArticlesForCategory(Category category){
         return getAssociationsForAnObject(category, Article.class, "categories");
+    }
+
+    public static Map<Integer, List<Article>> getMapOfArticlesForCategory(){
+        return getMapOfAssociationsForObjects(Category.class, Article.class, "categories");
     }
 
 }
