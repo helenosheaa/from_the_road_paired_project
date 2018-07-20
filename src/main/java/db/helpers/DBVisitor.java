@@ -3,6 +3,7 @@ package db.helpers;
 import db.DBHelper;
 import db.HibernateUtil;
 import models.Article;
+import models.Category;
 import models.Visitor;
 import models.Writer;
 import org.hibernate.Criteria;
@@ -33,6 +34,18 @@ public class DBVisitor extends DBHelper {
     public static void saveArticleForVisitor(Visitor visitor, Article article){
         visitor.saveArticle(article);
         update(article);
+    }
+
+    public static void removeSavedArticleFromVisitor(Visitor visitor, Article removeArticle){
+        List<Article> savedArticles = getSavedArticlesForVisitor(visitor);
+        for(Article article : savedArticles){
+            if(article.getId() == removeArticle.getId()){
+                removeArticle = article;
+            }
+        }
+        savedArticles.remove(removeArticle);
+        visitor.setSavedArticles(savedArticles);
+        update(visitor);
     }
 
 //    public static List<Writer> getFavouriteAuthorForVisitor(Visitor visitor){
