@@ -3,7 +3,9 @@ package db.helpers;
 import db.DBHelper;
 import models.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DBArticle extends DBHelper {
 
@@ -65,6 +67,26 @@ public class DBArticle extends DBHelper {
 
     public static Writer getWriterForArticle(Article article){
         return getAnAssociationForAnObject(article, Writer.class, "articles");
+    }
+
+    public static Map<Article, List<Tag>> getMapOfTagsForAritcles(){
+        List<Article> articles = getAll();
+        Map<Article, List<Tag>> articlesAndTags = new HashMap<>();
+        for (Article article : articles){
+            List<Tag> tags = getTagsForArticle(article);
+            articlesAndTags.put(article, tags);
+        }
+        return articlesAndTags;
+    }
+
+    public static Map<Article, List<Category>> getMapOfCategoriesForAritcles(){
+        List<Article> articles = getAll();
+        Map<Article, List<Category>> articlesAndCategories = new HashMap<>();
+        for (Article article : articles){
+            List<Category> categories = getCategoriesForArticle(article);
+            articlesAndCategories.put(article, categories);
+        }
+        return articlesAndCategories;
     }
 
 }
