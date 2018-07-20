@@ -8,8 +8,8 @@ public class Runner {
 
     public static void main(String[] args) {
 
-        DBWriter.deleteAll();
         DBArticle.deleteAll();
+        DBWriter.deleteAll();
         DBCategory.deleteAll();
         DBTag.deleteAll();
         DBVisitor.deleteAll();

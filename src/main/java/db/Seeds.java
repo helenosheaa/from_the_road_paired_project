@@ -6,8 +6,9 @@ import models.*;
 public class Seeds {
 
     public static void seedData(){
-        DBWriter.deleteAll();
+
         DBArticle.deleteAll();
+        DBWriter.deleteAll();
         DBCategory.deleteAll();
         DBTag.deleteAll();
         DBVisitor.deleteAll();
