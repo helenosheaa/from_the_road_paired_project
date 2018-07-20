@@ -1,0 +1,26 @@
+<h2 class="pageHeader">All Articles</h2>
+
+<ul class="container">
+    #foreach($article in $articles)
+    <li>
+        <div>
+            <a href="/admin/article/$article.getId()"><h3>$article.getTitle()</h3></a>
+
+            <p>$article.getSummary()</p>
+
+            #foreach($category in $articleCategories.get($article.getId()))
+            <p class="article_category_name">$category.getName()</p>
+            #end
+
+            #foreach($tag in $articleTags.get($article.getId()))
+            <p class="article_tag_name">$tag.getName()</p>
+            #end
+
+            <p>$article.dateFormatted()</p>
+            <p>$article.getAuthor().getName()</p>
+            <p>$article.getVisitCounter()</p>
+        </div>
+
+    </li>
+    #end
+</ul>
