@@ -38,6 +38,22 @@ public class WriterController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
+//      SHOW
+        get("/admin/writer/:id", (req, res) -> {
+            Map<String, Object> model = new HashMap();
+            model.put("template", "templates/admin/writerTemplates/show.vtl");
+
+            int writerId = Integer.parseInt(req.params(":id"));
+            Writer writer = DBWriter.find(writerId);
+            model.put("writer", writer);
+
+            List<Article> articles = DBWriter.getArticlesForWriter(writer);
+            model.put("articles", articles);
+
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
+//      DELETE
         post ("/admin/writers/:id/delete", (req, res) -> {
 
             int writerId = Integer.parseInt(req.params(":id"));

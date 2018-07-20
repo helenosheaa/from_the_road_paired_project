@@ -3,12 +3,12 @@
 <ul class="container">
     #foreach($writer in $writers)
     <li>
-        <h3>$writer.getName()</h3></a>
+        <a href="/admin/writer/$writer.getId()"><h3>$writer.getName()</h3></a>
         <ul>
             #foreach($article in $writerArticles.get($writer.getId()))
                 <li>
-                    <h4 class="article_category_name">$article.getTitle()</h4>
-                    <p>$article.getSummary()</p>
+                    <h4>$article.getTitle()</h4>
+                    <p>$article.dateFormatted()</p>
                     <p>$article.getVisitCounter()</p>
                 </li>
             #end
