@@ -2,6 +2,7 @@ package controllers;
 
 import db.DBHelper;
 import db.helpers.DBCategory;
+import models.Article;
 import models.Category;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -21,6 +22,8 @@ public class CategoryController {
 
     public void setupEndPoints(){
 
+        VelocityTemplateEngine velocityTemplateEngine = new VelocityTemplateEngine();
+
         get("/admin/categories", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/admin/categoryTemplates/index.vtl");
@@ -28,10 +31,26 @@ public class CategoryController {
             List<Category> categories = DBCategory.getAll();
             model.put("categories", categories);
 
-
+            Map<Integer, List<Article>> categoryArticles = DBCategory.getMapOfArticlesForCategories();
+            model.put("categoryArticles", categoryArticles);
 
             return new ModelAndView(model, "templates/layout.vtl");
-        }, new VelocityTemplateEngine());
+        }, velocityTemplateEngine);
+
+
+        get("/admin/category/:id", (req, res) -> {
+            Map<String, Object> model = new HashMap();
+            model.put("template", "templates/admin/categoryTemplates/index.vtl");
+
+            int categoryId = Integer.parseInt(req.params(":id"));
+            Category category = DBCategory.find(categoryId);
+            model.put("category", category);
+
+            List<Article> articles = DBCategory.getArticlesForCategory(category);
+            model.put("articles", articles);
+
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, velocityTemplateEngine);
 
         post ("/categories/:id/delete", (req, res) -> {
 

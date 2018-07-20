@@ -25,7 +25,7 @@ public class DBCategory extends DBHelper {
         return getAssociationsForAnObject(category, Article.class, "categories");
     }
 
-    public static Map<Integer, List<Article>> getMapOfArticlesForCategory(){
+    public static Map<Integer, List<Article>> getMapOfArticlesForCategories(){
         return getMapOfAssociationsForObjects(Category.class, Article.class, "categories");
     }
 
