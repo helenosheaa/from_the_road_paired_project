@@ -1,0 +1,25 @@
+<p class="pageHeader">Today's Articles:</p>
+
+<div class="container">
+        <ul>
+            #foreach($article in $articles)
+            <li>
+                <div>
+                    <h2>$article.getTitle()</h2>
+
+                    <p>$article.getSummary()</p>
+
+                    <p>$article.getCategories()</p>
+                    <p>$article.getTags()</p>
+
+                    <p>$article.getDate()</p>
+                    <p>$article.getAuthor()</p>
+                </div>
+
+            </li>
+
+        </ul>
+
+
+    #end
+</div>
