@@ -24,7 +24,7 @@ public class HomeController {
 
         get("/", (req, res) -> {
             Map<String, Object> model= new HashMap();
-            model.put("template", "templates/visitorHomeTemplate/index.vtl");
+            model.put("template", "templates/adminHomeTemplate/index.vtl");
 
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
