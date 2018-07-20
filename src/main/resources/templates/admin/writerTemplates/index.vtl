@@ -7,7 +7,7 @@
         <ul>
             #foreach($article in $writerArticles.get($writer.getId()))
                 <li>
-                    <h4>$article.getTitle()</h4>
+                    <a href="/admin/article/$article.getId()"><h4>$article.getTitle()</h4></a>
                     <p>$article.dateFormatted()</p>
                     <p>$article.getVisitCounter()</p>
                 </li>

@@ -9,15 +9,15 @@
             <p>$article.getSummary()</p>
 
             #foreach($category in $articleCategories.get($article.getId()))
-            <p class="article_category_name">$category.getName()</p>
+                <a href="/admin/category/$category.getId()"><p class="article_category_name">$category.getName()</p></a>
             #end
 
             #foreach($tag in $articleTags.get($article.getId()))
-            <p class="article_tag_name">$tag.getName()</p>
+                <a href="/admin/tag/$tag.getId()"><p class="article_tag_name">$tag.getName()</p></a>
             #end
 
             <p>$article.dateFormatted()</p>
-            <p>$article.getAuthor().getName()</p>
+            <a href="/admin/writer/$article.getAuthor().getId()"><p>$article.getAuthor().getName()</p></a>
             <p>$article.getVisitCounter()</p>
         </div>
 

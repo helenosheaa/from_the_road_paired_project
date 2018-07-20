@@ -1,15 +1,15 @@
 <h2>$article.getTitle()</h2>
 
 #foreach($category in $categories)
-<p class="article_category_name">$category.getName()</p>
+<a href="/admin/category/$category.getId()"><p class="article_category_name">$category.getName()</p></a>
 #end
 
 #foreach($tag in $tags)
-<p class="article_tag_name">$tag.getName()</p>
+<a href="/admin/tag/$tag.getId()"><p class="article_tag_name">$tag.getName()</p></a>
 #end
 
 <p>$article.dateFormatted()</p>
-<p>$article.getAuthor().getName()</p>
+<a href="/admin/writer/$article.getAuthor().getId()"><p>$article.getAuthor().getName()</p></a>
 <p>$article.getVisitCounter()</p>
 
 <p>$article.getSummary()</p>

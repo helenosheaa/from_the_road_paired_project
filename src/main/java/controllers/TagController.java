@@ -43,7 +43,7 @@ public class TagController {
 //      SHOW
         get("/admin/tag/:id", (req, res) -> {
             Map<String, Object> model = new HashMap();
-            model.put("template", "templates/admin/categoryTemplates/index.vtl");
+            model.put("template", "templates/admin/tagTemplates/show.vtl");
 
             int tagId = Integer.parseInt(req.params(":id"));
             Tag tag = DBTag.find(tagId);

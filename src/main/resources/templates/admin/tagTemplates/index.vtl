@@ -7,7 +7,7 @@
         <ul>
             #foreach($article in $tagArticles.get($tag.getId()))
             <li>
-                <h4>$article.getTitle()</h4>
+                <a href="/admin/article/$article.getId()"><h4>$article.getTitle()</h4></a>
                 <p>$article.getSummary()</p>
             </li>
             #end
