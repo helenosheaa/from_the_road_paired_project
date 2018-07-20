@@ -2,6 +2,7 @@ package controllers;
 
 import db.DBHelper;
 import db.helpers.DBWriter;
+import models.Article;
 import models.Writer;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -21,17 +22,23 @@ public class WriterController {
 
     public void setupEndPoints(){
 
-        get("/writers", (req, res) -> {
+//      ADMIN--------------------------------------------ADMIN-------------------------------------------ADMIN
+
+//      INDEX
+        get("admin/writers", (req, res) -> {
             Map<String, Object> model = new HashMap();
-            model.put("template", "templates/visitor/writerTemplates/index.vtl");
+            model.put("template", "templates/admin/writerTemplates/index.vtl");
 
             List<Writer> writers = DBWriter.getAll();
             model.put("writers", writers);
 
+            Map<Integer, List<Article>> writerArticles = DBWriter.getMapOfArticlesForWriters();
+            model.put("writerArticles", writerArticles);
+
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-        post ("/writers/:id/delete", (req, res) -> {
+        post ("/admin/writers/:id/delete", (req, res) -> {
 
             int writerId = Integer.parseInt(req.params(":id"));
 
@@ -39,7 +46,7 @@ public class WriterController {
 
             DBHelper.delete(writer);
 
-            res.redirect("/writers");
+            res.redirect("/admin/writers");
             return null;
         }, new VelocityTemplateEngine());
 

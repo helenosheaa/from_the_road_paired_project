@@ -1,6 +1,6 @@
 package controllers;
 
-import db.DBHelper;
+
 import db.helpers.DBArticle;
 import models.Article;
 import models.Category;
@@ -72,7 +72,6 @@ public class ArticleController {
             model.put("articleTags", articleTags);
 
             Map<Integer, List<Category>> articleCategories = DBArticle.getMapOfCategoriesForArticles();
-
             model.put("articleCategories", articleCategories);
 
             return new ModelAndView(model, "templates/layout.vtl");
