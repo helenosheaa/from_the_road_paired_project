@@ -1,12 +1,9 @@
 package db.helpers;
 
-import behaviours.IDB;
 import db.DBHelper;
 import models.Article;
-import models.Category;
 import models.Tag;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
