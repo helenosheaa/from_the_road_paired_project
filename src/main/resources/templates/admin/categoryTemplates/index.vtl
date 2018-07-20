@@ -1,16 +1,16 @@
-<p class="pageHeader">All Categories</p>
+<h1 class="pageHeader">All Categories</h1>
 
 <ul>
     #foreach($category in $categories)
     <li>
         <h2>$category.getName()</h2>
         <ul>
-        #foreach($article in $categoryArticles.get($category.getId()))
+            #foreach($article in $categoryArticles.get($category.getId()))
             <li>
                 <h3>$article.getTitle()</h3>
                 <p>$article.getSummary()</p>
             </li>
-        #end
+            #end
         </ul>
     </li>
     #end

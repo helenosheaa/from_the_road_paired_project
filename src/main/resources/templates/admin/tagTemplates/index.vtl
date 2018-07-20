@@ -1,19 +1,17 @@
-<p class="pageHeader">All Tags</p>
+<h2 class="pageHeader">All Tags</h2>
 
-<div class="container">
-    <table>
-        <tr>
-            <th>Name</th>
-        </tr>
-        #foreach($tag in $tags)
-        <tr>
-            <td>$tag.getName()</td>
-            <td> <form action="/tags/$tag.getId()/delete" method="POST">
-                <input type="submit" value="Delete Tag"/>
-            </form></td>
-        </tr>
-        #end
-    </table>
-
-
-</div>
+<ul>
+    #foreach($tag in $tags)
+    <li>
+        <h3>$tag.getName()</h3>
+        <ul>
+            #foreach($article in $tagArticles.get($tag.getId()))
+            <li>
+                <h4>$article.getTitle()</h4>
+                <p>$article.getSummary()</p>
+            </li>
+            #end
+        </ul>
+    </li>
+    #end
+</ul>

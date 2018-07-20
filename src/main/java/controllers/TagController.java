@@ -2,6 +2,7 @@ package controllers;
 
 import db.DBHelper;
 import db.helpers.DBTag;
+import models.Article;
 import models.Tag;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -21,12 +22,15 @@ public class TagController {
 
     public void setupEndPoints(){
 
-        get("/tags", (req, res) -> {
+        get("/admin/tags", (req, res) -> {
             Map<String, Object> model = new HashMap();
-            model.put("template", "templates/tagTemplates/index.vtl");
+            model.put("template", "templates/admin/tagTemplates/index.vtl");
 
             List<Tag> tags = DBTag.getAll();
             model.put("tags", tags);
+
+            Map<Integer, List<Article>> tagArticles = DBTag.getMapOfArticlesForTags();
+            model.put("tagArticles", tagArticles);
 
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
