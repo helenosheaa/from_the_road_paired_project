@@ -14,7 +14,7 @@ public class HomeController {
 
     public static void main(String[] args) {
 
-//        Seeds.seedData();
+        Seeds.seedData();
 
         ArticleController articleController = new ArticleController();
         CategoryController categoryController = new CategoryController();

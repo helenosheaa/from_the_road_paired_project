@@ -40,15 +40,16 @@ public class Runner {
 
         article1.addTag(tag);
         article1.addCategory(category);
-
         DBHelper.update(article1);
 
-        DBVisitor.saveArticleForVisitor(visitor, article1);
-
-        List<Article> foundArticles = DBWriter.getArticlesForWriter(writer1);
 
         Article foundArticle = DBArticle.find(article1.getId());
         Writer articleWriter = DBArticle.getWriterForArticle(foundArticle);
+
+        DBVisitor.saveArticleForVisitor(visitor, article1);
+        Visitor foundVisitor = DBVisitor.find(visitor.getId());
+        List<Article> foundSavedArticles = DBVisitor.getSavedArticlesForVisitor(foundVisitor);
+
 
 //        List<Tag> foundTags = DBArticle.getTagsForArticle(foundArticle);
 //        List<Category> foundCategories = DBArticle.getCategoriesForArticle(foundArticle);
@@ -62,6 +63,7 @@ public class Runner {
 
         List<Category> foundCategories = DBArticle.getCategoriesForArticle(foundArticle);
         List<Tag> foundTags = DBArticle.getTagsForArticle(foundArticle);
+
 
 
         System.exit(0);

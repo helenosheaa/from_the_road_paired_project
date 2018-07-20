@@ -33,7 +33,7 @@ public class DBVisitor extends DBHelper {
 
     public static void saveArticleForVisitor(Visitor visitor, Article article){
         visitor.saveArticle(article);
-        update(article);
+        update(visitor);
     }
 
     public static void removeSavedArticleFromVisitor(Visitor visitor, Article removeArticle){

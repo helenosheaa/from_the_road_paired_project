@@ -13,7 +13,7 @@ public class ArticleTest {
 
     @Before
     public void before(){
-        writer = new Writer("Helen");
+        writer = new Writer("Helen", "blurb");
         article = new Article("Travelling",writer, "content", "summary" );
     }
 

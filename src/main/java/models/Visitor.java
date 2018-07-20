@@ -4,6 +4,7 @@ import behaviours.IDB;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,6 +17,7 @@ public class Visitor implements IDB {
 
     public Visitor(String name) {
         this.name = name;
+        this.savedArticles = new ArrayList<>();
     }
 
     public Visitor() {
