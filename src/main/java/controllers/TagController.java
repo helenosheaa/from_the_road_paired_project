@@ -27,7 +27,6 @@ public class TagController {
             model.put("template", "templates/visitor/tagTemplates/show.vtl");
 
             int tagId = Integer.parseInt(req.params(":id"));
-
             Tag tag = DBTag.find(tagId);
             model.put("tag", tag);
 

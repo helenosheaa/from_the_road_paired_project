@@ -29,7 +29,6 @@ public class CategoryController {
             model.put("template", "templates/visitor/categoryTemplates/show.vtl");
 
             int categoryId = Integer.parseInt(req.params(":id"));
-
             Category category = DBCategory.find(categoryId);
             model.put("category", category);
 

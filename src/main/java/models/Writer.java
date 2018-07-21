@@ -58,4 +58,5 @@ public class Writer implements IDB {
     public void setBlurb(String blurb) {
         this.blurb = blurb;
     }
+
 }

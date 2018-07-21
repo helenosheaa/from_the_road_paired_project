@@ -23,7 +23,9 @@
                     #end
 
                     <p>$article.dateFormatted()</p>
-                    <p>$article.getAuthor().getName()</p>
+
+                    <a href="/writer/$writer.getId()"><p>$article.getAuthor().getName()</p></a>
+
                 </div>
 
             </li>
@@ -32,4 +34,5 @@
 
 
     #end
+
 </div>
