@@ -11,7 +11,9 @@
                     <p>$article.getSummary()</p>
 
                     #foreach($category in $articleCategories.get($article.getId()))
-                        <p>$category.getName()</p>
+
+                    <a href="/categories/$category.getId()"><p>$category.getName()</p></a>
+
                     #end
 
                     #foreach($tag in $articleTags.get($article.getId()))
