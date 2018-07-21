@@ -12,13 +12,14 @@
 
                     #foreach($category in $articleCategories.get($article.getId()))
 
-                    <a href="/categories/$category.getId()"><p>$category.getName()</p></a>
+                    <a href="/category/$category.getId()"><p>$category.getName()</p></a>
 
                     #end
 
                     #foreach($tag in $articleTags.get($article.getId()))
 
-                        <p>$tag.getName()</p>
+                    <a href="/tag/$tag.getId()"><p>$tag.getName()</p></a>
+
                     #end
 
                     <p>$article.dateFormatted()</p>

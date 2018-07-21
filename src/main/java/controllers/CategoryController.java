@@ -24,7 +24,7 @@ public class CategoryController {
 
     public void setupEndPoints(){
 
-        get("/categories/:id", (req, res) -> {
+        get("/category/:id", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/visitor/categoryTemplates/show.vtl");
 
