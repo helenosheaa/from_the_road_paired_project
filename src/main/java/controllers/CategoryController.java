@@ -121,7 +121,7 @@ public class CategoryController {
 
 
 //      DELETE
-        post ("/admin/categories/:id/delete", (req, res) -> {
+        post ("/admin/category/:id/delete", (req, res) -> {
 
             int categoryId = Integer.parseInt(req.params(":id"));
 

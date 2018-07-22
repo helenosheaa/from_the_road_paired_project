@@ -5,7 +5,7 @@
 <ul>
     #foreach($tag in $tags)
     <li>
-        <h3>$tag.getName()</h3>
+        <a href="/admin/tag/$tag.getId()"><h3>$tag.getName()</h3></a>
         <ul>
             #foreach($article in $tagArticles.get($tag.getId()))
             <li>
