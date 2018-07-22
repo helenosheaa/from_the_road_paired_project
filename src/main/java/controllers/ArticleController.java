@@ -115,15 +115,21 @@ public class ArticleController {
 
             String summary = req.queryParams("summary");
 
-            String[] categoryIds = req.queryMap("categoryIds").values();
-            List<Category> categories = DBCategory.findCategoriesInList(categoryIds);
-
-            String[] tagIds= req.queryMap("tagIds").values();
-            List<Tag> tags = DBTag.findTagsInList(tagIds);
-
             Article article = new Article(title, author, content, summary);
-            article.setTags(tags);
-            article.setCategories(categories);
+
+            try {
+                String[] categoryIds = req.queryMap("categoryIds").values();
+                List<Category> categories = DBCategory.findCategoriesInList(categoryIds);
+                article.setCategories(categories);
+            }catch (NullPointerException e){
+                res.redirect("/admin/article/new");
+            }
+
+            try {
+                String[] tagIds = req.queryMap("tagIds").values();
+                List<Tag> tags = DBTag.findTagsInList(tagIds);
+                article.setTags(tags);
+            }catch (NullPointerException e){}
 
             DBHelper.save(article);
 
@@ -151,7 +157,7 @@ public class ArticleController {
         }, velocityTemplateEngine);
 
 //      EDIT
-        get("/article/edit/:id", (req, res) -> {
+        get("/admin/article/edit/:id", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/admin/articleTemplates/edit.vtl");
 
@@ -160,10 +166,18 @@ public class ArticleController {
             model.put("article", article);
 
             List<Category> articleCategories = DBArticle.getCategoriesForArticle(article);
-            model.put("articleCategories", articleCategories);
+            List<Integer> articleCategoryIds = new ArrayList<>();
+            for (Category articleCategory : articleCategories ){
+                articleCategoryIds.add(articleCategory.getId());
+            }
+            model.put("articleCategoryIds", articleCategoryIds);
 
             List<Tag> articleTags = DBArticle.getTagsForArticle(article);
-            model.put("articleTags", articleTags);
+            List<Integer> articleTagIds = new ArrayList<>();
+            for (Tag articleTag : articleTags ){
+                articleTagIds.add(articleTag.getId());
+            }
+            model.put("articleTagIds", articleTagIds);
 
             List<Category> categories = DBCategory.getAll();
             model.put("categories", categories);
@@ -178,7 +192,7 @@ public class ArticleController {
         }, velocityTemplateEngine);
 
 //      UPDATE
-        post("/article/update/:id", (req, res) ->{
+        post("/admin/article/update/:id", (req, res) ->{
             String title = req.queryParams("title");
 
             int authorId = Integer.parseInt(req.queryParams("authorId"));
@@ -188,16 +202,24 @@ public class ArticleController {
 
             String summary = req.queryParams("summary");
 
-            int categoryId = Integer.parseInt(req.queryParams("categoryId"));
-            Category category = DBCategory.find(categoryId);
-
             Article article = new Article(title, author, content, summary);
-            article.addCategory(category);
 
             int articleId = Integer.parseInt(req.params(":id"));
             article.setId(articleId);
 
-//            TODO: need to deal with existing tag and extra category relationships
+            try {
+                String[] categoryIds = req.queryMap("categoryIds").values();
+                List<Category> categories = DBCategory.findCategoriesInList(categoryIds);
+                article.setCategories(categories);
+            }catch (NullPointerException e){
+                res.redirect("/admin/article/edit/" + articleId);
+            }
+
+            try {
+                String[] tagIds = req.queryMap("tagIds").values();
+                List<Tag> tags = DBTag.findTagsInList(tagIds);
+                article.setTags(tags);
+            }catch (NullPointerException e){}
 
             DBHelper.update(article);
 

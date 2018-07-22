@@ -1,0 +1,42 @@
+<h2>Edit $article.getTitle()</h2>
+
+<form action="/admin/article/update/$article.getId()" method="post">
+
+    <label for="title">Title: </label>
+    <input type="text" name="title" id="title" placeholder="Title needed" value="$article.getTitle()" required>
+
+    <label for="author">Author: </label>
+    <select name="authorId" id="author" required>
+        #foreach($author in $writers)
+            <option value="$author.getId()" #if($author.getId() == $article.getAuthor().getId()) selected #end >$author.getName()</option>
+        #end
+    </select>
+
+    <label for="content">Article's content: </label>
+    <input type="text" name="content" id="content" placeholder="Insert text here" value="$article.getContent()" required>
+
+    <label for="summary">Article's summary: </label>
+    <input type="text" name="summary" id="summary" placeholder="Insert text here" value="$article.getSummary()" required>
+
+    <label for="category_list">Categories</label>
+    <ul id="category_list">
+        #foreach($category in $categories)
+        <li>
+            <label for="categoryId_$category.getId()">$category.getName()</label>
+            <input type="checkbox" id="categoryId_$category.getId()" name="categoryIds" value="$category.getId()" #if($articleCategoryIds.contains($category.getId())) checked #end>
+        </li>
+        #end
+    </ul>
+
+    <label for="tag_list">Tags: </label>
+    <ul id="tag_list">
+        #foreach($tag in $tags)
+        <li>
+            <label for="tag_$tag.getId()">$tag.getName()</label>
+            <input type="checkbox" id="tag_$tag.getId()" name="tagIds" value="$tag.getId()" #if($articleTagIds.contains($tag.getId())) checked #end>
+        </li>
+        #end
+    </ul>
+
+    <input type="submit" value="Save">
+</form>
