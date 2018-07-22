@@ -226,6 +226,19 @@ public class ArticleController {
             res.redirect("/admin/articles");
             return null;
         }, velocityTemplateEngine);
+
+//      DELETE
+        post ("/admin/article/delete/:id", (req, res) -> {
+
+            int articleId = Integer.parseInt(req.params(":id"));
+
+            Article article = DBArticle.find(articleId);
+
+            DBHelper.delete(article);
+
+            res.redirect("/admin/articles");
+            return null;
+        }, velocityTemplateEngine);
     }
 
 }
