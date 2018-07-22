@@ -1,9 +1,11 @@
 <h2 class="pageHeader">All Tags</h2>
 
+<a href="/admin/tag/new" class="button center">Add a new Tag</a>
+
 <ul>
     #foreach($tag in $tags)
     <li>
-        <h3>$tag.getName()</h3>
+        <a href="/admin/tag/$tag.getId()"><h3>$tag.getName()</h3></a>
         <ul>
             #foreach($article in $tagArticles.get($tag.getId()))
             <li>
@@ -13,5 +15,6 @@
             #end
         </ul>
     </li>
+    <a href="/admin/tag/$tag.getId()/edit" class="button center">Edit Tag</a>
     #end
 </ul>
