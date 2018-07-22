@@ -5,9 +5,11 @@ import db.helpers.DBArticle;
 import models.Article;
 import models.Category;
 import models.Tag;
+import models.Writer;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
