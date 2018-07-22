@@ -1,8 +1,10 @@
 package controllers;
 
 import db.DBHelper;
+import db.helpers.DBCategory;
 import db.helpers.DBTag;
 import models.Article;
+import models.Category;
 import models.Tag;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -55,6 +57,26 @@ public class TagController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 
+//      NEW
+        get("/admin/tag/new", (req, res) -> {
+            HashMap<String, Object> model = new HashMap<>();
+            model.put("template", "templates/admin/tagTemplates/create.vtl");
+
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, velocityTemplateEngine);
+
+//      CREATE
+        post("/admin/tag", (req, res) -> {
+
+            String name = req.queryParams("name");
+            Tag tag = new Tag(name);
+            DBTag.save(tag);
+
+            res.redirect("/admin/tags");
+            return null;
+        }, velocityTemplateEngine);
+
+
 //      SHOW
         get("/admin/tag/:id", (req, res) -> {
             Map<String, Object> model = new HashMap();
@@ -69,6 +91,34 @@ public class TagController {
 
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
+
+//      EDIT
+        get("/admin/tag/:id/edit", (req, res) -> {
+            int tagId = Integer.parseInt(req.params(":id"));
+
+            Tag tag = DBTag.find(tagId);
+
+            Map<String, Object> model = new HashMap();
+            model.put("template", "templates/admin/tagTemplates/edit.vtl");
+
+            model.put("tag", tag);
+
+            return new ModelAndView(model, "templates/layout.vtl");
+
+        }, velocityTemplateEngine);
+
+//      UPDATE
+        post("/admin/tag/update/:id", (req, res) -> {
+            Tag tag = new Tag();
+
+            tag.setId(Integer.parseInt(req.params(":id")));
+            tag.setName(req.queryParams("name"));
+
+            DBTag.update(tag);
+            res.redirect("/admin/tags");
+            return null;
+        }, velocityTemplateEngine);
+
 
 //      DELETE
         post ("/admin/tags/:id/delete", (req, res) -> {

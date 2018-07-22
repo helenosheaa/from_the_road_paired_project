@@ -1,5 +1,7 @@
 <h2>$category.getName()</h2>
 
+<a href="/admin/category/$category.getId()/edit" class="button center">Edit Category</a>
+
 <ul>
     #foreach($article in $articles)
         <li>
@@ -7,7 +9,6 @@
             <p>$article.dateFormatted()</p>
             <p>$article.getVisitCounter()</p>
             <p>$article.getSummary()</p>
-            <a href="/admin/category/$category.getId()/edit" class="button center">Edit Category</a>
         </li>
     #end
 </ul>

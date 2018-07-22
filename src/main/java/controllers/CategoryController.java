@@ -75,7 +75,7 @@ public class CategoryController {
 
             res.redirect("/admin/categories");
             return null;
-        }, velocityTemplateEngine);
+    }, velocityTemplateEngine);
 
 //      SHOW
         get("/admin/category/:id", (req, res) -> {

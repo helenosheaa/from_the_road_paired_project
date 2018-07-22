@@ -1,9 +1,9 @@
 <h1 class="pageHeader">All Categories</h1>
 
+<a href="/admin/category/new" class="button center">Add a new Category</a>
 
 <ul>
     #foreach($category in $categories)
-    <a href="/admin/category/new" class="button center">Add a new Category</a>
     <li>
         <a href="/admin/category/$category.getId()"><h2>$category.getName()</h2></a>
         <ul>
