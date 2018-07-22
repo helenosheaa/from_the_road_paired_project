@@ -1,0 +1,10 @@
+<h1>Edit Writer</h1>
+
+<form action="/admin/writer/update/$writer.getId()" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required value="$writer.getName()">
+
+    <input type="text" id="blurb" name="blurb" required value="$writer.getBlurb()">
+
+    <input type="submit" value="Update Writer">
+</form>

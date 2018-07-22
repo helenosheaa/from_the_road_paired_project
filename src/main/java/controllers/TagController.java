@@ -1,10 +1,8 @@
 package controllers;
 
 import db.DBHelper;
-import db.helpers.DBCategory;
 import db.helpers.DBTag;
 import models.Article;
-import models.Category;
 import models.Tag;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
