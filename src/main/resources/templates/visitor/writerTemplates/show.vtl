@@ -4,6 +4,6 @@
 <p>$writer.getBlurb()</p>
 
 #foreach($article in $articles)
-<p>$article.getTitle()</p>
-<p>$article.getSummary()</p>
+    <a href="/article/$article.getId()"><p>$article.getTitle()</p></a>
+    <p>$article.getSummary()</p>
 #end

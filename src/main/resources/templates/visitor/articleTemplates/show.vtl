@@ -4,15 +4,15 @@
 <p>$article.getSummary()</p>
 
 #foreach($category in $categories)
-    <p>$category.getName()</p>
+    <a href="/category/$category.getId()"><p>$category.getName()</p></a>
 #end
 
 #foreach($tag in $tags)
-    <p>$tag.getName()</p>
+    <a href="/tag/$tag.getId()"><p>$tag.getName()</p></a>
 #end
 
 <p>$article.dateFormatted()</p>
-<p>$article.getAuthor().getName()</p>
+<a href="/writer/$article.getAuthor().getId()"><p>$article.getAuthor().getName()</p></a>
 
 <p>$article.getContent()</p>
 
