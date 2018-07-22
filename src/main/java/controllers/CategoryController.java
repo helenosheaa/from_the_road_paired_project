@@ -58,6 +58,25 @@ public class CategoryController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 
+//      NEW
+        get("/admin/category/new", (req, res) -> {
+            HashMap<String, Object> model = new HashMap<>();
+            model.put("template", "templates/admin/categoryTemplates/create.vtl");
+
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, velocityTemplateEngine);
+
+//      CREATE
+        post("/admin/category", (req, res) -> {
+
+            String name = req.queryParams("name");
+            Category category = new Category(name);
+            DBCategory.save(category);
+
+            res.redirect("/admin/categories");
+            return null;
+        }, velocityTemplateEngine);
+
 //      SHOW
         get("/admin/category/:id", (req, res) -> {
             Map<String, Object> model = new HashMap();
@@ -71,6 +90,33 @@ public class CategoryController {
             model.put("articles", articles);
 
             return new ModelAndView(model, "templates/layout.vtl");
+        }, velocityTemplateEngine);
+
+//      EDIT
+        get("/admin/category/:id/edit", (req, res) -> {
+            int categoryId = Integer.parseInt(req.params(":id"));
+
+            Category category = DBCategory.find(categoryId);
+
+            Map<String, Object> model = new HashMap();
+            model.put("template", "templates/admin/categoryTemplates/edit.vtl");
+
+            model.put("category", category);
+
+            return new ModelAndView(model, "templates/layout.vtl");
+
+        }, velocityTemplateEngine);
+
+//      UPDATE
+        post("/admin/category/update/:id", (req, res) -> {
+            Category category = new Category();
+
+            category.setId(Integer.parseInt(req.params(":id")));
+            category.setName(req.queryParams("name"));
+
+            DBCategory.update(category);
+            res.redirect("/admin/categories");
+            return null;
         }, velocityTemplateEngine);
 
 

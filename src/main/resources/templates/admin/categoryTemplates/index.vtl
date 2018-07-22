@@ -1,7 +1,9 @@
 <h1 class="pageHeader">All Categories</h1>
 
+
 <ul>
     #foreach($category in $categories)
+    <a href="/admin/category/new" class="button center">Add a new Category</a>
     <li>
         <a href="/admin/category/$category.getId()"><h2>$category.getName()</h2></a>
         <ul>
@@ -9,9 +11,12 @@
             <li>
                 <a href="/admin/article/$article.getId()"><h3>$article.getTitle()</h3></a>
                 <p>$article.getVisitCounter()</p>
+
             </li>
             #end
         </ul>
     </li>
+    <a href="/admin/category/$category.getId()/edit" class="button center">Edit Category</a>
     #end
 </ul>
+
