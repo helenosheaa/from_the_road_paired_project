@@ -24,6 +24,21 @@ public class TagController {
 
         VelocityTemplateEngine velocityTemplateEngine = new VelocityTemplateEngine();
 
+//      SHOW
+        get("/tag/:id", (req, res) -> {
+            Map<String, Object> model = new HashMap();
+            model.put("template", "templates/visitor/tagTemplates/show.vtl");
+
+            int tagId = Integer.parseInt(req.params(":id"));
+            Tag tag = DBTag.find(tagId);
+            model.put("tag", tag);
+
+            List<Article> articles = DBTag.getArticlesForTag(tag);
+            model.put("articles", articles);
+
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, velocityTemplateEngine);
+
 //      ADMIN--------------------------------------------ADMIN-------------------------------------------ADMIN
 
 //      INDEX

@@ -1,0 +1,9 @@
+<p class="pageHeader">This Authors Articles</p>
+
+<p>$writer.getName()</p>
+<p>$writer.getBlurb()</p>
+
+#foreach($article in $articles)
+<p>$article.getTitle()</p>
+<p>$article.getSummary()</p>
+#end
