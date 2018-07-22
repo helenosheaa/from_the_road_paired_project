@@ -13,7 +13,6 @@ import models.Writer;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -115,8 +114,7 @@ public class ArticleController {
 
             String summary = req.queryParams("summary");
 
-            int categoryId = Integer.parseInt(req.queryParams("categoryId"));
-            Category category = DBCategory.find(categoryId);
+
 
             Article article = new Article(title, author, content, summary);
             article.addCategory(category);

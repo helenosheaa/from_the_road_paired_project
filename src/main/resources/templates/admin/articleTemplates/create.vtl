@@ -1,0 +1,42 @@
+<h2>New Article</h2>
+
+<form action="/admin/article/save" method="post">
+
+    <label for="title">Title: </label>
+    <input type="text" name="title" id="title" placeholder="Title needed" required>
+
+    <label for="author">Author: </label>
+    <select name="authorId" id="author" required>
+        <option selected hidden>Select author</option>
+        #foreach($author in $authors)
+            <option value="$author.getId()">$author.getName()</option>
+        #end
+    </select>
+
+    <label for="content">Article's content: </label>
+    <input type="text" name="content" id="content" placeholder="Insert text here" required>
+
+    <label for="summary">Article's summary: </label>
+    <input type="text" name="summary" id="summary" placeholder="Insert text here" required>
+
+    <label for="category_list">Categories</label>
+    <ul id="category_list">
+        #foreach($category in $categories)
+            <li>
+                <label for="category[$category.getId()]">$category.getName()</label>
+                <input type="checkbox" id="category[$category.getId()]" name="categoryId[$category.getId()]" value="$category.getId()">
+            </li>
+        #end
+    </ul>
+
+    <label for="tag_list">Tags: </label>
+    <ul id="tag_list">
+        #foreach($tag in $tags)
+            <li>
+                <label for="tag_$tag.getId()">$tag.getName()</label>
+                <input type="checkbox" id="tag_$tag.getId()" name="tagId_$tag.getId()" value="$tag.getId()">
+            </li>
+        #end
+    </ul>
+
+</form>
