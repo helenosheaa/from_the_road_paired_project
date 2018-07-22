@@ -29,4 +29,8 @@ public class DBTag extends DBHelper {
         return getMapOfAssociationsForObjects(Tag.class, Article.class, "tags");
     }
 
+    public static List<Tag> findTagsInList(String[] arrayOfIds){
+        return findAllObjectsInList(arrayOfIds, Tag.class);
+    }
+
 }

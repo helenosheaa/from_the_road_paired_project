@@ -1,7 +1,7 @@
 package models;
 
 import behaviours.IDB;
-import db.DateHandler;
+import tools.DateHandler;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;

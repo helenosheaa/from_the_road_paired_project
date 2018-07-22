@@ -29,4 +29,8 @@ public class DBCategory extends DBHelper {
         return getMapOfAssociationsForObjects(Category.class, Article.class, "categories");
     }
 
+    public static List<Category> findCategoriesInList(String[] arrayOfIds){
+        return findAllObjectsInList(arrayOfIds, Category.class);
+    }
+
 }

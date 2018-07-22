@@ -13,6 +13,7 @@ import models.Writer;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -114,10 +115,15 @@ public class ArticleController {
 
             String summary = req.queryParams("summary");
 
+            String[] categoryIds = req.queryMap("categoryIds").values();
+            List<Category> categories = DBCategory.findCategoriesInList(categoryIds);
 
+            String[] tagIds= req.queryMap("tagIds").values();
+            List<Tag> tags = DBTag.findTagsInList(tagIds);
 
             Article article = new Article(title, author, content, summary);
-            article.addCategory(category);
+            article.setTags(tags);
+            article.setCategories(categories);
 
             DBHelper.save(article);
 

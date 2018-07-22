@@ -9,6 +9,7 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -189,5 +190,15 @@ public class DBHelper {
             objectsAndAssociations.put(object.getId(), associations);
         }
         return objectsAndAssociations;
+    }
+
+    protected static <T> List<T> findAllObjectsInList(String[] arrayOfIdsAsStrings, Class<T> searchingClass){
+        List<T> objects = new ArrayList<>();
+        for(String objectId : arrayOfIdsAsStrings){
+            int id = Integer.parseInt(objectId);
+            T object = find(id, searchingClass);
+            objects.add(object);
+        }
+        return objects;
     }
 }
