@@ -119,7 +119,7 @@ public class TagController {
 
 
 //      DELETE
-        post ("/admin/tags/:id/delete", (req, res) -> {
+        post ("/admin/tag/:id/delete", (req, res) -> {
 
             int tagId = Integer.parseInt(req.params(":id"));
 

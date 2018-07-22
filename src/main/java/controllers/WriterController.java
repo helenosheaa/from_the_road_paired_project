@@ -122,7 +122,7 @@ public class WriterController {
         }, new VelocityTemplateEngine());
 
 //      DELETE
-        post ("/admin/writers/:id/delete", (req, res) -> {
+        post ("/admin/writer/:id/delete", (req, res) -> {
 
             int writerId = Integer.parseInt(req.params(":id"));
 
