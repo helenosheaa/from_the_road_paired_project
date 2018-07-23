@@ -1,16 +1,16 @@
 <p class="page-header">Hot Off The Press:</p>
 
-<div class="article-container">
-
     <ul>
         #set($selectedArticles = $articles.subList($start, $end))
         #foreach($article in $selectedArticles)
         <li>
-            <div>
+            <div class="article-title">
                 <a href="/article/$article.getId()"><h2>$article.getTitle()</h2></a>
-
+            </div>
+            <div class="summary">
                 <p>$article.getSummary()</p>
-
+            </div>
+            <div class="article-add-ons">
                 #foreach($category in $articleCategories.get($article.getId()))
 
                 <a href="/category/$category.getId()"><p>$category.getName()</p></a>
@@ -26,6 +26,7 @@
                 <p>$article.dateFormatted()</p>
 
                 <a href="/writer/$article.getAuthor().getId()"><p>$article.getAuthor().getName()</p></a>
+            </div>
 
             </div>
 

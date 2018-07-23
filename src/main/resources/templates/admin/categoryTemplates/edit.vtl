@@ -1,8 +1,10 @@
-<h1>Edit Category</h1>
+<h1 class="page-header">Edit Category</h1>
 
+<div class="form-wrap">
 <form action="/admin/category/update/$category.getId()" method="post">
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" required value="$category.getName()">
 
-    <input type="submit" value="Update Category">
+    <input class="btn" type="submit" value="Update Category">
 </form>
+</div>

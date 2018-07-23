@@ -1,6 +1,6 @@
-<h1 class="pageHeader">All Categories</h1>
+<h1 class="page-header">All Categories</h1>
 
-<a href="/admin/category/new" class="button center">Add a new Category</a>
+<a href="/admin/category/new">Add a new Category</a>
 
 <ul>
     #foreach($category in $categories)
@@ -16,7 +16,7 @@
             #end
         </ul>
     </li>
-    <a href="/admin/category/$category.getId()/edit" class="button center">Edit Category</a>
+
     #end
 </ul>
 

@@ -1,5 +1,13 @@
-<h2>$article.getTitle()</h2>
+<h2 class="page-header">$article.getTitle()</h2>
 
+<div class="edit-options">
+<a href="/admin/article/edit/$article.getId()">Edit Article</a>
+<form action="/admin/article/$article.getId()/delete" method="POST">
+    <input class="btn" type="submit" value="Delete Article"/>
+</form>
+</div>
+
+<div class="article-add-ons">
 #foreach($category in $categories)
 <a href="/admin/category/$category.getId()"><p class="article_category_name">$category.getName()</p></a>
 #end
@@ -10,9 +18,12 @@
 
 <p>$article.dateFormatted()</p>
 <a href="/admin/writer/$article.getAuthor().getId()"><p>$article.getAuthor().getName()</p></a>
+
 <p>$article.getVisitCounter()</p>
-
+</div>
+<div class="summary">
 <p>$article.getSummary()</p>
-
+</div>
+<div class="article-body">
 <p>$article.getContent()</p>
-
+</div>

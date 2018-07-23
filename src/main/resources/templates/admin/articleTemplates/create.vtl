@@ -1,10 +1,15 @@
-<h3>Create a New Article:</h3>
+<h3 class="page-header">Create a New Article:</h3>
 
 <form action="/admin/article/save" method="post">
 
+    <div class="form-wrap">
+
+    <div class="form">
     <label for="title">Title: </label>
     <input type="text" name="title" id="title" placeholder="Title needed" required>
+    </div>
 
+    <div class="form">
     <label for="author">Author: </label>
     <select name="authorId" id="author" required>
         <option selected hidden>Select author</option>
@@ -12,13 +17,19 @@
             <option value="$author.getId()">$author.getName()</option>
         #end
     </select>
+    </div>
 
+    <div class="form">
     <label for="content">Article's content: </label>
     <input type="text" name="content" id="content" placeholder="Insert text here" required>
+    </div>
 
+    <div class="form">
     <label for="summary">Article's summary: </label>
     <input type="text" name="summary" id="summary" placeholder="Insert text here" required>
+    </div>
 
+    <div class="form">
     <label for="category_list">Categories</label>
     <ul id="category_list">
         #foreach($category in $categories)
@@ -28,7 +39,9 @@
             </li>
         #end
     </ul>
+    </div>
 
+    <div class="form">
     <label for="tag_list">Tags: </label>
     <ul id="tag_list">
         #foreach($tag in $tags)
@@ -38,6 +51,7 @@
             </li>
         #end
     </ul>
+    </div>
 
     <label for="image_list">Images: </label>
     <ul id="image_list">
@@ -49,5 +63,9 @@
         #end
     </ul>
 
-    <input type="submit" value="Save">
+        <div class="form">
+            <input class="btn" type="submit" value="Save">
+        </div>
+    </div>
 </form>
+

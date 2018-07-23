@@ -1,19 +1,26 @@
-<h2 class="pageHeader">All Articles</h2>
+<h2 class="page-header">Home</h2>
 
-<a href="/admin/article/new">New article</a>
+<div class="side-bar-right">
+<a href="/admin/article/new">Add Article</a>
+<a href="/admin/writer/new">Add Writer</a>
+<a href="/admin/category/new">Add Category</a>
+<a href="/admin/tag/new">Add Tag</a>
+</div>
 
-<ul class="container">
+<ul class="edit-container">
     #foreach($article in $articles)
     <li>
-        <div>
-            <a href="/admin/article/$article.getId()"><h3>$article.getTitle()</h3></a>
-            <a href="/admin/article/edit/$article.getId()">Edit</a>
-            <form action="/admin/article/delete/$article.getId()" method="post">
-                <input type="submit" value="Delete">
-            </form>
+        <a href="/admin/article/$article.getId()"><h3>$article.getTitle()</h3></a>
 
-            <p>$article.getSummary()</p>
+        <p>$article.dateFormatted()</p>
 
+        <p>$article.getSummary()</p>
+
+        <p>$article.getVisitCounter()</p>
+
+        <a href="/admin/article/edit/$article.getId()">Edit</a>
+
+        <div class="side-bar-left"
             #foreach($category in $articleCategories.get($article.getId()))
                 <a href="/admin/category/$category.getId()"><p class="article_category_name">$category.getName()</p></a>
             #end
@@ -22,11 +29,9 @@
                 <a href="/admin/tag/$tag.getId()"><p class="article_tag_name">$tag.getName()</p></a>
             #end
 
-            <p>$article.dateFormatted()</p>
             <a href="/admin/writer/$article.getAuthor().getId()"><p>$article.getAuthor().getName()</p></a>
-            <p>$article.getVisitCounter()</p>
-        </div>
 
     </li>
     #end
 </ul>
+</div>

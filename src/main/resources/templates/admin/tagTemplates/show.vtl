@@ -1,5 +1,9 @@
-<h2>$tag.getName()</h2>
+<h2 class="page-header">$tag.getName()</h2>
+
 <a href="/admin/tag/$tag.getId()/edit" class="button center">Edit Tag</a>
+<form action="/admin/tag/$tag.getId()/delete" method="POST">
+    <input class="btn" type="submit" value="Delete Tag"/>
+</form>
 
 <ul>
     #foreach($article in $articles)
@@ -12,6 +16,3 @@
     </li>
     #end
 </ul>
-<form action="/admin/tag/$tag.getId()/delete" method="POST">
-    <input type="submit" value="Delete Tag"/>
-</form>
