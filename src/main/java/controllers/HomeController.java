@@ -13,10 +13,13 @@ import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.get;
+import static spark.SparkBase.staticFileLocation;
 
 public class HomeController {
 
     public static void main(String[] args) {
+
+        staticFileLocation("/public");
 
         Seeds.seedData();
 
