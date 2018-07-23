@@ -82,7 +82,7 @@ public class Article implements IDB {
         return DateHandler.formatForDisplay(this.date);
     }
 
-    @Column(name = "content")
+    @Column(name = "content", columnDefinition = "TEXT")
     public String getContent() {
         return content;
     }
