@@ -12,6 +12,7 @@ import models.Tag;
 import models.Writer;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
+import tools.SparkDataHandler;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,12 +33,15 @@ public class ArticleController {
         VelocityTemplateEngine velocityTemplateEngine = new VelocityTemplateEngine();
 
 //      INDEX
-        get("/articles", (req, res) -> {
+        get("/articles/:start/:end", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/visitor/articleTemplates/index.vtl");
 
             List<Article> articles = DBArticle.getArticlesByDate();
             model.put("articles", articles);
+
+            Map<Integer, List<Integer>> pages = SparkDataHandler.getPagesForList(articles, 3);
+            model.put("pages", pages);
 
             Map<Integer, List<Tag>> articleTags = DBArticle.getMapOfTagsForArticles();
             model.put("articleTags", articleTags);
