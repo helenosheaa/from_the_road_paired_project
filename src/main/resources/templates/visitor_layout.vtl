@@ -10,6 +10,13 @@
 <nav>
     <a href="/">Home</a>
     <a href="/articles">Articles</a>
+
+    #foreach ($category in $categories)
+
+    <a href="/category/$category.getId()">$category.getName()</a>
+
+    #end
+
     <a href="/admin">Admin</a>
 </nav>
 <div class="container">
