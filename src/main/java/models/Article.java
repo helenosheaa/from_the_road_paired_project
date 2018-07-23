@@ -23,11 +23,12 @@ public class Article implements IDB {
     private List<Tag> tags;
     private int visitCounter;
     private List<Visitor> visitorSaves;
+    private Image mainImage;
 
     public Article() {
     }
 
-    public Article(String title, Writer author, String content, String summary) {
+    public Article(String title, Writer author, String content, String summary, Image mainImage) {
         this.title = title;
         this.author = author;
         this.date = Calendar.getInstance ();
@@ -36,6 +37,8 @@ public class Article implements IDB {
         this.visitCounter = 0;
         this.tags = new ArrayList<>();
         this.categories = new ArrayList<>();
+        this.mainImage = mainImage;
+
     }
 
     @Id
@@ -150,5 +153,13 @@ public class Article implements IDB {
     }
     public void setVisitorSaves(List<Visitor> visitorSaves) {
         this.visitorSaves = visitorSaves;
+    }
+
+    @Column(name = "main_image")
+    public Image getMainImage() {
+        return mainImage;
+    }
+    public void setMainImage(Image mainImage) {
+        this.mainImage = mainImage;
     }
 }
