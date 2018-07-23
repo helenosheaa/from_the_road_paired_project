@@ -34,8 +34,8 @@ public class HomeController {
             Map<String, Object> model= new HashMap();
             model.put("template", "templates/visitor/visitorHomeTemplate/index.vtl");
 
-            List<Category> categories = DBCategory.getAll();
-            model.put("categories", categories);
+            List<Category> navBarCategories = DBCategory.getAll();
+            model.put("navBarCategories", navBarCategories);
 
             List<Article> topThreeArticles = DBArticle.getArticlesByVisit().subList(0, 3);
             model.put("topThreeArticles", topThreeArticles);

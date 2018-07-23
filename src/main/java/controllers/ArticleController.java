@@ -37,6 +37,9 @@ public class ArticleController {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/visitor/articleTemplates/index.vtl");
 
+            List<Category> navBarCategories = DBCategory.getAll();
+            model.put("navBarCategories", navBarCategories);
+
             List<Article> articles = DBArticle.getArticlesByDate();
             model.put("articles", articles);
 
@@ -81,6 +84,8 @@ public class ArticleController {
         get("/article/:id", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/visitor/articleTemplates/show.vtl");
+            List<Category> navBarCategories = DBCategory.getAll();
+            model.put("navBarCategories", navBarCategories);
 
             int articleId = Integer.parseInt(req.params(":id"));
             Article article = DBArticle.find(articleId);

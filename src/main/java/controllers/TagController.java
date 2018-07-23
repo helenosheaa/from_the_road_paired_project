@@ -1,8 +1,10 @@
 package controllers;
 
 import db.DBHelper;
+import db.helpers.DBCategory;
 import db.helpers.DBTag;
 import models.Article;
+import models.Category;
 import models.Tag;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -28,6 +30,8 @@ public class TagController {
         get("/tag/:id", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/visitor/tagTemplates/show.vtl");
+            List<Category> navBarCategories = DBCategory.getAll();
+            model.put("navBarCategories", navBarCategories);
 
             int tagId = Integer.parseInt(req.params(":id"));
             Tag tag = DBTag.find(tagId);
