@@ -1,10 +1,13 @@
 package controllers;
 
 import db.Seeds;
+import db.helpers.DBCategory;
+import models.Category;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.get;
@@ -25,6 +28,9 @@ public class HomeController {
         get("/", (req, res) -> {
             Map<String, Object> model= new HashMap();
             model.put("template", "templates/visitor/visitorHomeTemplate/index.vtl");
+
+            List<Category> categories = DBCategory.getAll();
+            model.put("categories", categories);
 
             return new ModelAndView(model, "templates/visitor_layout.vtl");
         }, new VelocityTemplateEngine());
