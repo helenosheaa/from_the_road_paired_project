@@ -3,6 +3,7 @@ package db.helpers;
 import db.DBHelper;
 import models.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -78,6 +79,28 @@ public class DBArticle extends DBHelper {
 
     public static List<Article> searchByTitle(String searchTerm){
         return searchForAll(searchTerm, Article.class, "title");
+    }
+
+    public static List<Article> searchForAllRelatedArticles(String searchTerm){
+        List<Article> articles = new ArrayList<>();
+        articles.addAll(searchByTitle(searchTerm));
+
+        List<Category> categories = DBCategory.searchByName(searchTerm);
+        for(Category category : categories){
+            articles.addAll(DBCategory.getArticlesForCategory(category));
+        }
+
+        List<Tag> tags = DBTag.searchByName(searchTerm);
+        for(Tag tag : tags){
+            articles.addAll(DBTag.getArticlesForTag(tag));
+        }
+
+        List<Writer> writers = DBWriter.searchByName(searchTerm);
+        for(Writer writer : writers){
+            articles.addAll(DBWriter.getArticlesForWriter(writer));
+        }
+
+        return articles;
     }
 
 }

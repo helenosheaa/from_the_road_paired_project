@@ -33,4 +33,7 @@ public class DBTag extends DBHelper {
         return findAllObjectsInList(arrayOfIds, Tag.class);
     }
 
+    public static List<Tag> searchByName(String searchTerm){
+        return searchForAll(searchTerm, Tag.class, "name");
+    }
 }

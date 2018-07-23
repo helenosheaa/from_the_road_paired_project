@@ -29,4 +29,7 @@ public class DBWriter extends DBHelper {
         return getMapOfAssociationsForObjects(Writer.class, Article.class, "author");
     }
 
+    public static List<Writer> searchByName(String searchTerm){
+        return searchForAll(searchTerm, Writer.class, "name");
+    }
 }

@@ -31,8 +31,13 @@ public class ArticleController {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/visitor/articleTemplates/index.vtl");
 
-            List<Article> articles = DBArticle.searchByTitle(req.queryParams("searchTerm"));
+            List<Category> navBarCategories = DBCategory.getAll();
+            model.put("navBarCategories", navBarCategories);
+
+            List<Article> articles = DBArticle.searchForAllRelatedArticles(req.queryParams("searchTerm"));
             model.put("articles", articles);
+
+
 
             int numberOnAPage = 3;
             Map<Integer, Map<String, Integer>> pages = SparkDataHandler.getPagesForList(articles, numberOnAPage);

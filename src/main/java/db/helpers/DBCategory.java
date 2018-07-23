@@ -33,4 +33,7 @@ public class DBCategory extends DBHelper {
         return findAllObjectsInList(arrayOfIds, Category.class);
     }
 
+    public static List<Category> searchByName(String searchTerm){
+        return searchForAll(searchTerm, Category.class, "name");
+    }
 }
