@@ -7,11 +7,12 @@ public class Seeds {
 
     public static void seedData(){
 
-        DBArticle.deleteAll();
-        DBWriter.deleteAll();
         DBCategory.deleteAll();
         DBTag.deleteAll();
         DBVisitor.deleteAll();
+        DBImage.deleteAll();
+        DBArticle.deleteAll();
+        DBWriter.deleteAll();
 
         Category category1 = new Category("Family");
         DBHelper.save(category1);

@@ -19,5 +19,6 @@
         <mapping class = "models.Writer"/>
         <mapping class="models.Tag"/>
         <mapping class="models.Category"/>
+        <mapping class="models.Image"/>
     </session-factory>
 </hibernate-configuration>

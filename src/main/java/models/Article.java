@@ -155,7 +155,8 @@ public class Article implements IDB {
         this.visitorSaves = visitorSaves;
     }
 
-    @Column(name = "main_image")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "image_id", nullable = false)
     public Image getMainImage() {
         return mainImage;
     }

@@ -39,5 +39,15 @@
         #end
     </ul>
 
+    <label for="image_list">Images: </label>
+    <ul id="image_list">
+        #foreach($image in $images)
+        <li>
+            <label for="image_$image.getId()"><img src="$image.getRoute()" alt="$image.getAltText()"></label>
+            <input type="radio" id="image_$image.getId()" name="imageId" value="$image.getId()">
+        </li>
+        #end
+    </ul>
+
     <input type="submit" value="Save">
 </form>

@@ -2,14 +2,8 @@ package controllers;
 
 
 import db.DBHelper;
-import db.helpers.DBArticle;
-import db.helpers.DBCategory;
-import db.helpers.DBTag;
-import db.helpers.DBWriter;
-import models.Article;
-import models.Category;
-import models.Tag;
-import models.Writer;
+import db.helpers.*;
+import models.*;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 import tools.SparkDataHandler;
@@ -146,6 +140,9 @@ public class ArticleController {
             List<Writer> writers = DBWriter.getAll();
             model.put("writers", writers);
 
+            List<Image> images = DBImage.getAll();
+            model.put("images", images);
+
             return new ModelAndView(model, "templates/admin_layout.vtl");
         }, velocityTemplateEngine);
 
@@ -161,7 +158,10 @@ public class ArticleController {
 
             String summary = req.queryParams("summary");
 
-            Article article = new Article(title, author, content, summary);
+            int imageId = Integer.parseInt(req.queryParams("imageId"));
+            Image image = DBImage.find(imageId);
+
+            Article article = new Article(title, author, content, summary, image);
 
             try {
                 String[] categoryIds = req.queryMap("categoryIds").values();
@@ -234,6 +234,9 @@ public class ArticleController {
             List<Writer> writers = DBWriter.getAll();
             model.put("writers", writers);
 
+            List<Image> images = DBImage.getAll();
+            model.put("images", images);
+
             return new ModelAndView(model, "templates/admin_layout.vtl");
         }, velocityTemplateEngine);
 
@@ -248,6 +251,9 @@ public class ArticleController {
 
             String summary = req.queryParams("summary");
 
+            int imageId = Integer.parseInt(req.queryParams("imageId"));
+            Image image = DBImage.find(imageId);
+
             int articleId = Integer.parseInt(req.params(":id"));
             Article article = DBArticle.find(articleId);
 
@@ -255,6 +261,7 @@ public class ArticleController {
             article.setAuthor(author);
             article.setContent(content);
             article.setSummary(summary);
+            article.setMainImage(image);
 
             try {
                 String[] categoryIds = req.queryMap("categoryIds").values();
