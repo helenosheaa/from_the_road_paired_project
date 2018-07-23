@@ -38,7 +38,7 @@ public class CategoryController {
             List<Article> articles = DBCategory.getArticlesForCategory(category);
             model.put("articles", articles);
 
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/visitor_layout.vtl");
             },velocityTemplateEngine);
 
 //      ADMIN--------------------------------------------ADMIN-------------------------------------------ADMIN
@@ -55,7 +55,7 @@ public class CategoryController {
             Map<Integer, List<Article>> categoryArticles = DBCategory.getMapOfArticlesForCategories();
             model.put("categoryArticles", categoryArticles);
 
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/admin_layout.vtl");
         }, velocityTemplateEngine);
 
 //      NEW
@@ -63,7 +63,7 @@ public class CategoryController {
             HashMap<String, Object> model = new HashMap<>();
             model.put("template", "templates/admin/categoryTemplates/create.vtl");
 
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/admin_layout.vtl");
         }, velocityTemplateEngine);
 
 //      CREATE
@@ -89,7 +89,7 @@ public class CategoryController {
             List<Article> articles = DBCategory.getArticlesForCategory(category);
             model.put("articles", articles);
 
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/admin_layout.vtl");
         }, velocityTemplateEngine);
 
 //      EDIT
@@ -103,7 +103,7 @@ public class CategoryController {
 
             model.put("category", category);
 
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/admin_layout.vtl");
 
         }, velocityTemplateEngine);
 

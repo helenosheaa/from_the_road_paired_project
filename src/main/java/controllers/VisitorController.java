@@ -28,7 +28,7 @@ public class VisitorController {
             List<Visitor> visitors = DBVisitor.getAll();
             model.put("visitors", visitors);
 
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/visitor_layout.vtl");
         }, new VelocityTemplateEngine());
 
         post ("/visitors/:id/delete", (req, res) -> {

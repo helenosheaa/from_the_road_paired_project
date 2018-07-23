@@ -26,7 +26,7 @@ public class HomeController {
             Map<String, Object> model= new HashMap();
             model.put("template", "templates/visitor/visitorHomeTemplate/index.vtl");
 
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/visitor_layout.vtl");
         }, new VelocityTemplateEngine());
 
 

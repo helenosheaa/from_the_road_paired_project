@@ -36,7 +36,7 @@ public class TagController {
             List<Article> articles = DBTag.getArticlesForTag(tag);
             model.put("articles", articles);
 
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/visitor_layout.vtl");
         }, velocityTemplateEngine);
 
 //      ADMIN--------------------------------------------ADMIN-------------------------------------------ADMIN
@@ -52,7 +52,7 @@ public class TagController {
             Map<Integer, List<Article>> tagArticles = DBTag.getMapOfArticlesForTags();
             model.put("tagArticles", tagArticles);
 
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/admin_layout.vtl");
         }, velocityTemplateEngine);
 
 //      NEW
@@ -60,7 +60,7 @@ public class TagController {
             HashMap<String, Object> model = new HashMap<>();
             model.put("template", "templates/admin/tagTemplates/create.vtl");
 
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/admin_layout.vtl");
         }, velocityTemplateEngine);
 
 //      CREATE
@@ -87,7 +87,7 @@ public class TagController {
             List<Article> articles = DBTag.getArticlesForTag(tag);
             model.put("articles", articles);
 
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/admin_layout.vtl");
         }, velocityTemplateEngine);
 
 //      EDIT
@@ -101,7 +101,7 @@ public class TagController {
 
             model.put("tag", tag);
 
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/admin_layout.vtl");
 
         }, velocityTemplateEngine);
 

@@ -1,12 +1,9 @@
 package controllers;
 
-import db.helpers.DBCategory;
-import models.Category;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.get;
@@ -23,7 +20,7 @@ public class AdminController {
             Map<String, Object> model= new HashMap();
             model.put("template", "templates/admin/adminHomeTemplate/index.vtl");
 
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/admin_layout.vtl");
         }, new VelocityTemplateEngine());
 
 

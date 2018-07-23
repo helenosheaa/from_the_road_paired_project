@@ -1,12 +1,8 @@
 package controllers;
 
 import db.DBHelper;
-import db.helpers.DBCategory;
-import db.helpers.DBTag;
 import db.helpers.DBWriter;
 import models.Article;
-import models.Category;
-import models.Tag;
 import models.Writer;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -38,7 +34,7 @@ public class WriterController {
             List<Article> articles = DBWriter.getArticlesForWriter(writer);
             model.put("articles", articles);
 
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/visitor_layout.vtl");
         }, new VelocityTemplateEngine());
 
 //      ADMIN--------------------------------------------ADMIN-------------------------------------------ADMIN
@@ -54,7 +50,7 @@ public class WriterController {
             Map<Integer, List<Article>> writerArticles = DBWriter.getMapOfArticlesForWriters();
             model.put("writerArticles", writerArticles);
 
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/admin_layout.vtl");
         }, new VelocityTemplateEngine());
 
 //      NEW
@@ -62,7 +58,7 @@ public class WriterController {
             HashMap<String, Object> model = new HashMap<>();
             model.put("template", "templates/admin/writerTemplates/create.vtl");
 
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/admin_layout.vtl");
         }, new VelocityTemplateEngine());
 
 //      CREATE
@@ -90,7 +86,7 @@ public class WriterController {
             List<Article> articles = DBWriter.getArticlesForWriter(writer);
             model.put("articles", articles);
 
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/admin_layout.vtl");
         }, new VelocityTemplateEngine());
 
         //      EDIT
@@ -104,7 +100,7 @@ public class WriterController {
 
             model.put("writer", writer);
 
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/admin_layout.vtl");
 
         }, new VelocityTemplateEngine());
 

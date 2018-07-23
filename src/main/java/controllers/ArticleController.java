@@ -46,7 +46,7 @@ public class ArticleController {
 
             model.put("articleCategories", articleCategories);
 
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/visitor_layout.vtl");
         }, velocityTemplateEngine);
 
 //      SHOW
@@ -64,7 +64,7 @@ public class ArticleController {
             List<Category> categories = DBArticle.getCategoriesForArticle(article);
             model.put("categories", categories);
 
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/visitor_layout.vtl");
         }, velocityTemplateEngine);
 
 //      ADMIN--------------------------------------------ADMIN-------------------------------------------ADMIN
@@ -83,7 +83,7 @@ public class ArticleController {
             Map<Integer, List<Category>> articleCategories = DBArticle.getMapOfCategoriesForArticles();
             model.put("articleCategories", articleCategories);
 
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/admin_layout.vtl");
         }, velocityTemplateEngine);
 
 //      CREATE
@@ -100,7 +100,7 @@ public class ArticleController {
             List<Writer> writers = DBWriter.getAll();
             model.put("writers", writers);
 
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/admin_layout.vtl");
         }, velocityTemplateEngine);
 
 //      SAVE
@@ -153,7 +153,7 @@ public class ArticleController {
             List<Category> categories = DBArticle.getCategoriesForArticle(article);
             model.put("categories", categories);
 
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/admin_layout.vtl");
         }, velocityTemplateEngine);
 
 //      EDIT
@@ -188,7 +188,7 @@ public class ArticleController {
             List<Writer> writers = DBWriter.getAll();
             model.put("writers", writers);
 
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/admin_layout.vtl");
         }, velocityTemplateEngine);
 
 //      UPDATE
