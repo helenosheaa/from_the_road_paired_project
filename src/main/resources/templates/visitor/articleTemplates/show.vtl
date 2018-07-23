@@ -3,6 +3,10 @@
 
 <p>$article.getSummary()</p>
 
+<form action="/article/clapped/$article.getId()" method="POST">
+    <input type="submit" value="Clap!">
+</form>
+
 #foreach($category in $categories)
     <a href="/category/$category.getId()"><p>$category.getName()</p></a>
 #end

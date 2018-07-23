@@ -67,6 +67,19 @@ public class ArticleController {
             return new ModelAndView(model, "templates/visitor_layout.vtl");
         }, velocityTemplateEngine);
 
+//      CLAP BUTTON
+
+        post("/article/clapped/:id", (req, res) ->{
+            int articleId = Integer.parseInt(req.params(":id"));
+            Article article = DBArticle.find(articleId);
+
+            article.indexVisitCounter();
+            DBArticle.update(article);
+
+            res.redirect("/article/" + articleId);
+            return null;
+        }, velocityTemplateEngine);
+
 //      ADMIN--------------------------------------------ADMIN-------------------------------------------ADMIN
 
 //      INDEX
