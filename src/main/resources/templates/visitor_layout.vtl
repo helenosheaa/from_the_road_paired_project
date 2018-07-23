@@ -6,14 +6,18 @@
     <link rel='stylesheet' href='/form.css'>
     <link rel='stylesheet' href='/button.css'>
     <link rel='stylesheet' href='/table.css'>
-    <link href="https://fonts.googleapis.com/css?family=Markazi+Text" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Markazi+Text" rel="stylesheet">
 </head>
 <body>
 <!-- begin inner template-->
 <a href="/"><h1 class="fancy-title">From The Road</h1></a>
+<div class ="header">
+<input class="btn" type="submit" value="Sign Up">
+</div>
+
 <nav>
     <a href="/">Home</a>
-    <a href="/articles/1">Articles</a>
+    <!--<a href="/articles/1">Articles</a>-->
 
     #foreach ($category in $navBarCategories)
 
@@ -21,10 +25,13 @@
 
     #end
 
-    <a href="/admin">Admin</a>
+
 </nav>
 <div class="container">
     #parse( $template )
+</div>
+<div class="footer">
+<a href="/admin">Admin</a>
 </div>
 <!-- end inner template-->
 </body>
