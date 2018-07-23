@@ -36,7 +36,7 @@ public class ArticleController {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/visitor/articleTemplates/index.vtl");
 
-            List<Article> articles = DBArticle.getAll();
+            List<Article> articles = DBArticle.getArticlesByDate();
             model.put("articles", articles);
 
             Map<Integer, List<Tag>> articleTags = DBArticle.getMapOfTagsForArticles();
