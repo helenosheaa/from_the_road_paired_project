@@ -22,8 +22,32 @@
 <div class="show-image">
     <img src="$article.getMainImage().getRoute()" alt="$article.getMainImage().getAltText()">
 </div>
-<div class = article-body>
+<div class = "article-body">
 <p>$article.getContent()</p>
+</div>
+
+<div class = "comments">
+    <ul>
+        #foreach($comment in $comments)
+            <li>
+                <p>$comment.getUser()</p>
+                <p>$comment.getComment()</p>
+            </li>
+        #end
+        <li>
+            <form action="/comment/save/$article.getId()" method="post" class="comment-form">
+
+                <label for="user">User: </label>
+                <input type="text" id="user" name="user" placeholder="Username" required>
+
+                <label for="comment">Comment: </label>
+                <input type="text" id="comment" name="comment" placeholder="Type comment here" required>
+
+                <input type="submit" value="Save">
+
+            </form>
+        </li>
+    </ul>
 </div>
 
 

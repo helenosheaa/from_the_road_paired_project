@@ -19,11 +19,11 @@ public class CommentController {
         VelocityTemplateEngine velocityTemplateEngine = new VelocityTemplateEngine();
 
 //      SAVE
-        post("/comment/save", (req, res) -> {
+        post("/comment/save/:id", (req, res) -> {
 
             String commentContent = req.queryParams("comment");
             String user = req.queryParams("user");
-            int articleId = Integer.parseInt(req.queryParams("articleId"));
+            int articleId = Integer.parseInt(req.params(":id"));
             Article article = DBArticle.find(articleId);
 
             Comment comment = new Comment(commentContent, user, article);

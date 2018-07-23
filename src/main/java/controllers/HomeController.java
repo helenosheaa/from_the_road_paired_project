@@ -29,7 +29,7 @@ public class HomeController {
         TagController tagController = new TagController();
         VisitorController visitorController = new VisitorController();
         WriterController writerController = new WriterController();
-
+        CommentController commentController = new CommentController();
 
         get("/", (req, res) -> {
             Map<String, Object> model= new HashMap();

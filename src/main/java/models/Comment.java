@@ -12,14 +12,14 @@ public class Comment implements IDB {
     private int id;
     private String comment;
     private Calendar date;
-    private String user;
+    private String username;
     private Article article;
 
     public Comment(){}
 
-    public Comment(String comment, String user, Article article){
+    public Comment(String comment, String username, Article article){
         this.comment = comment;
-        this.user = user;
+        this.username = username;
         this.date = Calendar.getInstance();
         this.article = article;
     }
@@ -52,16 +52,15 @@ public class Comment implements IDB {
         this.date = date;
     }
 
-    @Column(name = "user")
+    @Column(name = "username")
     public String getUser() {
-        return user;
+        return username;
+    }
+    public void setUser(String username) {
+        this.username = username;
     }
 
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "article_id", nullable = false)
     public Article getArticle() {
         return article;

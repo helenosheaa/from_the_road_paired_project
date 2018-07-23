@@ -132,6 +132,9 @@ public class ArticleController {
             List<Category> categories = DBArticle.getCategoriesForArticle(article);
             model.put("categories", categories);
 
+            List<Comment> comments = DBArticle.getCommentsForArticle(article);
+            model.put("comments", comments);
+
             return new ModelAndView(model, "templates/visitor_layout.vtl");
         }, velocityTemplateEngine);
 

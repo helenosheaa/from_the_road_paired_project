@@ -24,6 +24,7 @@ public class Article implements IDB {
     private int visitCounter;
     private List<Visitor> visitorSaves;
     private Image mainImage;
+    private List<Comment> comments;
 
     public Article() {
     }
@@ -162,5 +163,14 @@ public class Article implements IDB {
     }
     public void setMainImage(Image mainImage) {
         this.mainImage = mainImage;
+    }
+
+    @OneToMany(mappedBy = "article", fetch = FetchType.LAZY)
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }

@@ -14,9 +14,9 @@
         <property name="hbm2ddl.auto">update</property>
         <property name="show_sql">true</property>
 
-        <mapping class = "models.Visitor"/>
-        <mapping class= "models.Article"/>
-        <mapping class = "models.Writer"/>
+        <mapping class="models.Visitor"/>
+        <mapping class="models.Article"/>
+        <mapping class="models.Writer"/>
         <mapping class="models.Tag"/>
         <mapping class="models.Category"/>
         <mapping class="models.Image"/>
