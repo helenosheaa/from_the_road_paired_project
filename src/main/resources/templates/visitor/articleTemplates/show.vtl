@@ -1,8 +1,9 @@
 
-<h2>$article.getTitle()</h2>
+<h2 class="article-title">$article.getTitle()</h2>
 
-<p>$article.getSummary()</p>
+<p class="summary">$article.getSummary()</p>
 
+<div class="article-add-ons">
 <form action="/article/clapped/$article.getId()" method="POST">
     <input type="submit" value="Clap! $article.getVisitCounter()">
 </form>
@@ -17,8 +18,10 @@
 
 <p>$article.dateFormatted()</p>
 <a href="/writer/$article.getAuthor().getId()"><p>$article.getAuthor().getName()</p></a>
-
+    </div>
+<div class = article-body>
 <p>$article.getContent()</p>
+</div>
 
 
 

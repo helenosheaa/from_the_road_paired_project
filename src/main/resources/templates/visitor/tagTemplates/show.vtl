@@ -1,10 +1,11 @@
-<p class="pageHeader">$tag.getName()</p>
+<p class="page-header">$tag.getName()</p>
 
+<div class="tag-wrap"
 #foreach($article in $articles)
     <a href="/article/$article.getId()"><p>$article.getTitle()</p></a>
     <p>$article.getSummary()</p>
 #end
-
+></div>
 
 
 

@@ -1,11 +1,13 @@
-<p class="page_header">$category.getName()</p>
 
+<p class="page-header">$category.getName()</p>
+
+<div class="category-wrap">
 #foreach($article in $articles)
     <a href="/article/$article.getId()"><p>$article.getTitle()</p></a>
     <p>$article.getSummary()</p>
 #end
 
-
+</div>
 
 
 

@@ -1,6 +1,6 @@
-<h2 class="pageHeader">All Tags</h2>
+<h2 class="page-header">All Tags</h2>
 
-<a href="/admin/tag/new" class="button center">Add a new Tag</a>
+<a href="/admin/tag/new">Add a new Tag</a>
 
 <ul>
     #foreach($tag in $tags)
@@ -15,6 +15,5 @@
             #end
         </ul>
     </li>
-    <a href="/admin/tag/$tag.getId()/edit" class="button center">Edit Tag</a>
     #end
 </ul>

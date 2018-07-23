@@ -1,8 +1,10 @@
-<p class="pageHeader">$writer.getName()</p>
+<p class="page-header">$writer.getName()</p>
 
+<div class="writer-wrap">
 <p>$writer.getBlurb()</p>
 
 #foreach($article in $articles)
     <a href="/article/$article.getId()"><p>$article.getTitle()</p></a>
     <p>$article.getSummary()</p>
 #end
+</div>

@@ -1,6 +1,9 @@
-<h2>$category.getName()</h2>
+<h2 class="page-header">$category.getName()</h2>
 
-<a href="/admin/category/$category.getId()/edit" class="button center">Edit Category</a>
+<a href="/admin/category/$category.getId()/edit">Edit Category</a>
+<form action="/admin/category/$category.getId()/delete" method="POST">
+    <input class= "btn" type="submit" value="Delete Category"/>
+</form>
 
 <ul>
     #foreach($article in $articles)
@@ -12,7 +15,5 @@
         </li>
     #end
 </ul>
-<form action="/admin/category/$category.getId()/delete" method="POST">
-    <input type="submit" value="Delete Category"/>
-</form>
+
 
