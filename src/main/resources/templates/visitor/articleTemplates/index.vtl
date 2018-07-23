@@ -1,13 +1,12 @@
-<p class="pageHeader">Today's Articles:</p>
+<p class="page-header">Hot Off The Press:</p>
 
-<div class="container">
+<div class="article-container">
 
         <ul>
             #foreach($article in $articles)
             <li>
                 <div>
                     <a href="/article/$article.getId()"><h2>$article.getTitle()</h2></a>
-
 
                     <p>$article.getSummary()</p>
 

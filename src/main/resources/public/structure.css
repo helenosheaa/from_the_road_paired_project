@@ -1,4 +1,81 @@
 body {
-background-color: pink;
-font-family: 'Cormorant', serif;
+  background-color: #B9B2A9;
+  text-align: center;
+}
+
+h1, h2, h3, th, tr {
+font-family: 'Markazi Text', serif;
+font-weight: 400;
+text-align: center;
+color: #787C79;
+margin-top: 30px;
+}
+
+.fancy-title {
+font-size: 10.8em;
+font-family: 'Markazi Text', serif;
+font-weight: 400;
+}
+
+.fancy-title:hover {
+    color: #9E7C52;
+}
+
+
+p {
+font-family: 'Markazi Text', serif;
+font-weight: 300;
+font-size: 1.2em;
+text-align: center;
+color: #2C3539;
+}
+
+a, a:link, a:visited {
+font-family: 'Markazi Text', serif;
+font-weight: 300;
+color: #9E7C52;
+text-decoration: none;
+display: flex;
+outline: none;
+}
+
+a:hover, a:active, a:focus {
+  color: #9E7C52;
+}
+
+nav {
+padding: 0;
+margin: 0 2px;
+text-align: center;
+background-color: #8BA870;
+color: #2C3539;
+display: flex;
+justify-content: space-around;
+}
+
+ul li {
+margin-bottom: 5px;
+}
+
+.article-container {
+}
+
+.page-header{
+}
+
+
+.selected {
+  background-color: #835F27;
+  outline: none;
+}
+
+#content {
+  align-items: center;
+}
+
+#article-wrap {
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
 }
