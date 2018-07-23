@@ -3,6 +3,17 @@ body {
   text-align: center;
 }
 
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
 h1, h2, h3, th, tr {
 font-family: 'Markazi Text', serif;
 font-weight: 400;
