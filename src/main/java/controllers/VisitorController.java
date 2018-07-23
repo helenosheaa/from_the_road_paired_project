@@ -1,7 +1,9 @@
 package controllers;
 
 import db.DBHelper;
+import db.helpers.DBCategory;
 import db.helpers.DBVisitor;
+import models.Category;
 import models.Visitor;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -24,6 +26,8 @@ public class VisitorController {
         get("/visitors", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/visitorTemplates/index.vtl");
+            List<Category> navBarCategories = DBCategory.getAll();
+            model.put("navBarCategories", navBarCategories);
 
             List<Visitor> visitors = DBVisitor.getAll();
             model.put("visitors", visitors);

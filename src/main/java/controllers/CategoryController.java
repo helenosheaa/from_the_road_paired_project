@@ -30,6 +30,8 @@ public class CategoryController {
         get("/category/:id", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/visitor/categoryTemplates/show.vtl");
+            List<Category> navBarCategories = DBCategory.getAll();
+            model.put("navBarCategories", navBarCategories);
 
             int categoryId = Integer.parseInt(req.params(":id"));
             Category category = DBCategory.find(categoryId);

@@ -1,8 +1,10 @@
 package controllers;
 
 import db.DBHelper;
+import db.helpers.DBCategory;
 import db.helpers.DBWriter;
 import models.Article;
+import models.Category;
 import models.Writer;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -26,6 +28,8 @@ public class WriterController {
         get("/writer/:id", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/visitor/writerTemplates/show.vtl");
+            List<Category> navBarCategories = DBCategory.getAll();
+            model.put("navBarCategories", navBarCategories);
 
             int writerId = Integer.parseInt(req.params(":id"));
             Writer writer = DBWriter.find(writerId);
