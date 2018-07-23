@@ -12,12 +12,13 @@ color: #787C79;
 
 .header{
 font-size: 2.0em;
-text-align: right;
+margin-left: 1051px;
 }
 
 .footer{
 font-size: 2.0em;
 text-align: right;
+height: 50px;
 }
 
 .fancy-title {
@@ -28,7 +29,7 @@ text-align: center;
 }
 
 .fancy-title:hover {
-    color: #9E7C52;
+ color: #9E7C52;
 }
 
 p {
@@ -49,12 +50,12 @@ outline: none;
 }
 
 a:hover, a:active, a:focus {
-  color: #9E7C52;
+color: #9E7C52;
 }
 
 .selected {
-  background-color: #835F27;
-  outline: none;
+background-color: #835F27;
+outline: none;
 }
 
 nav {
@@ -87,6 +88,13 @@ font-size: 3em;
  }
 
 .article-add-ons{
+display: flex;
+justify-content: space-around;
+}
+
+
+.article-wrapper{
+list-style-type: none;
 }
 
 .category-wrap{

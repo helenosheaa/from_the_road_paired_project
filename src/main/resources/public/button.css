@@ -1,2 +1,31 @@
-.btn{
+.btn {
+background-color: #B9B2A9;
+padding: 8px 10px;
+font-family: 'Amatic SC', cursive;
+border: solid;
+display: block;
+margin-top: 10px;
+align-items: center;
+font-weight: 300;
+font-size: 1.2em;
+}
+
+.btn:hover {
+color: #9E7C52;
+font-family: 'Amatic SC', cursive;
+}
+
+.btn-show {
+  background-color: #B9B2A9;
+  padding: 8px 10px;
+font-family: 'Amatic SC', cursive;
+  border: solid;
+  margin-left: 25px;
+  font-weight: 300;
+  font-size: 1.2em;
+}
+
+.btn-show:hover {
+color: #787C79;
+font-family: 'Amatic SC', cursive;
 }
