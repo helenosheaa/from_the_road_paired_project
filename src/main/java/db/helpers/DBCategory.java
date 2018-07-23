@@ -7,7 +7,7 @@ import models.Category;
 import java.util.List;
 import java.util.Map;
 
-public class DBCategory extends DBHelper {
+public abstract class DBCategory extends DBHelper {
 
     public static void deleteAll(){
         deleteAll(Category.class);

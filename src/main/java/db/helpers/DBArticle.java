@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class DBArticle extends DBHelper {
+public abstract class DBArticle extends DBHelper {
 
     public static void deleteAll(){
         deleteAll(Article.class);
@@ -51,6 +51,10 @@ public class DBArticle extends DBHelper {
         categories.remove(removeCategory);
         article.setCategories(categories);
         update(article);
+    }
+
+    public static List<Comment> getCommentsForArticle(Article article){
+        return getAssociationsForAnObject(article, Comment.class, "article");
     }
 
     public static List<Visitor> getVisitorsWhoHaveSavedAnArticle(Article article){

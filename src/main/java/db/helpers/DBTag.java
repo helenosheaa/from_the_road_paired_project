@@ -7,7 +7,7 @@ import models.Tag;
 import java.util.List;
 import java.util.Map;
 
-public class DBTag extends DBHelper {
+public abstract class DBTag extends DBHelper {
 
     public static void deleteAll(){
         deleteAll(Tag.class);

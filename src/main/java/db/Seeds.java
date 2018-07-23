@@ -10,6 +10,7 @@ public class Seeds {
         DBCategory.deleteAll();
         DBTag.deleteAll();
         DBVisitor.deleteAll();
+        DBComment.deleteAll();
         DBArticle.deleteAll();
         DBWriter.deleteAll();
         DBImage.deleteAll();

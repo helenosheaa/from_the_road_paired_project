@@ -20,5 +20,6 @@
         <mapping class="models.Tag"/>
         <mapping class="models.Category"/>
         <mapping class="models.Image"/>
+        <mapping class="models.Comment"/>
     </session-factory>
 </hibernate-configuration>

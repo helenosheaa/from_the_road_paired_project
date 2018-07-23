@@ -7,7 +7,7 @@ import models.Writer;
 import java.util.List;
 import java.util.Map;
 
-public class DBWriter extends DBHelper {
+public abstract class DBWriter extends DBHelper {
 
     public static void deleteAll(){
         deleteAll(Writer.class);

@@ -30,6 +30,7 @@ public class HomeController {
         VisitorController visitorController = new VisitorController();
         WriterController writerController = new WriterController();
 
+
         get("/", (req, res) -> {
             Map<String, Object> model= new HashMap();
             model.put("template", "templates/visitor/visitorHomeTemplate/index.vtl");

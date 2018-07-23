@@ -13,7 +13,7 @@ import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
 
-public class DBVisitor extends DBHelper {
+public abstract class DBVisitor extends DBHelper {
 
     public static void deleteAll(){
         deleteAll(Visitor.class);

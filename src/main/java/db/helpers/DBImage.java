@@ -5,7 +5,7 @@ import models.Image;
 
 import java.util.List;
 
-public class DBImage extends DBHelper {
+public abstract class DBImage extends DBHelper {
 
     public static Image find(int id){
         return find(id,Image.class);
