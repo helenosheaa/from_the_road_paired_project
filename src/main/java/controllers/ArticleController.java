@@ -37,8 +37,6 @@ public class ArticleController {
             List<Article> articles = DBArticle.searchForAllRelatedArticles(req.queryParams("searchTerm"));
             model.put("articles", articles);
 
-
-
             int numberOnAPage = 3;
             Map<Integer, Map<String, Integer>> pages = SparkDataHandler.getPagesForList(articles, numberOnAPage);
 

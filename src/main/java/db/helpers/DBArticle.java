@@ -100,6 +100,10 @@ public class DBArticle extends DBHelper {
             articles.addAll(DBWriter.getArticlesForWriter(writer));
         }
 
+        if(articles.size()==0){
+            articles = getArticlesByVisit();
+        }
+
         return articles;
     }
 
