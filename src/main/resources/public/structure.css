@@ -3,17 +3,6 @@ body {
   text-align: center;
 }
 
-.pagination {
-    display: inline-block;
-}
-
-.pagination a {
-    color: black;
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
-}
-
 h1, h2, h3, th, tr {
 font-family: 'Markazi Text', serif;
 font-weight: 400;
@@ -30,7 +19,6 @@ font-weight: 400;
 .fancy-title:hover {
     color: #9E7C52;
 }
-
 
 p {
 font-family: 'Markazi Text', serif;
@@ -53,6 +41,11 @@ a:hover, a:active, a:focus {
   color: #9E7C52;
 }
 
+.selected {
+  background-color: #835F27;
+  outline: none;
+}
+
 nav {
 padding: 0;
 margin: 0 2px;
@@ -67,25 +60,47 @@ ul li {
 margin-bottom: 5px;
 }
 
-.article-container {
-}
-
 .page-header{
 }
 
+.article-title{
+}
 
-.selected {
-  background-color: #835F27;
-  outline: none;
+.article-add-ons{
+}
+
+.category-wrap{
+}
+
+.tag-wrap{
+}
+
+.writer-wrap{
+}
+
+.side-bar-right{
+}
+
+.side-bar-left{
+}
+
+.edit-container{
+}
+
+.edit-options{
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
 }
 
 #content {
   align-items: center;
-}
-
-#article-wrap {
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-  display: inline-block;
 }
