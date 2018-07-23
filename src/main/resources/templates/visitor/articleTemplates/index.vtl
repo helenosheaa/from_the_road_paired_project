@@ -2,36 +2,48 @@
 
 <div class="article-container">
 
-        <ul>
-            #foreach($article in $articles)
-            <li>
-                <div>
-                    <a href="/article/$article.getId()"><h2>$article.getTitle()</h2></a>
+    <ul>
+        #set($selectedArticles = $articles.subList($start, $end))
+        #foreach($article in $selectedArticles)
+        <li>
+            <div>
+                <a href="/article/$article.getId()"><h2>$article.getTitle()</h2></a>
 
-                    <p>$article.getSummary()</p>
+                <p>$article.getSummary()</p>
 
-                    #foreach($category in $articleCategories.get($article.getId()))
+                #foreach($category in $articleCategories.get($article.getId()))
 
-                    <a href="/category/$category.getId()"><p>$category.getName()</p></a>
+                <a href="/category/$category.getId()"><p>$category.getName()</p></a>
 
-                    #end
+                #end
 
-                    #foreach($tag in $articleTags.get($article.getId()))
+                #foreach($tag in $articleTags.get($article.getId()))
 
-                    <a href="/tag/$tag.getId()"><p>$tag.getName()</p></a>
+                <a href="/tag/$tag.getId()"><p>$tag.getName()</p></a>
 
-                    #end
+                #end
 
-                    <p>$article.dateFormatted()</p>
+                <p>$article.dateFormatted()</p>
 
-                    <a href="/writer/$article.getAuthor().getId()"><p>$article.getAuthor().getName()</p></a>
+                <a href="/writer/$article.getAuthor().getId()"><p>$article.getAuthor().getName()</p></a>
 
-                </div>
+            </div>
 
-            </li>
+        </li>
 
+        #end
+    </ul>
+    <div class="pagination">
+        #if($isntStartPage)
+            <a href="/articles/$previousPage">&laquo;</a>
+        #end
+        #foreach($page in $pages.entrySet())
+            <a href="/articles/$page.key">$page.key</a>
+        #end
+        #if($isntEndPage)
+            <a href="/articles/$nextPage">&raquo;</a>
+        #end
+    </div>
 
-    #end
-        </ul>
 
 </div>
