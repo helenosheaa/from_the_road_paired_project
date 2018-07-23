@@ -6,6 +6,9 @@
     #set($selectedArticles = $articles.subList($start, $end))
     #foreach($article in $selectedArticles)
         <a href="/article/$article.getId()"><p>$article.getTitle()</p></a>
+    <div class="index-image">
+        <img src="$article.getMainImage().getRoute()" alt="$article.getMainImage().getAltText()">
+    </div>
         <p>$article.getSummary()</p>
     #end
 </div>
