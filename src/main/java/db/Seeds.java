@@ -10,9 +10,10 @@ public class Seeds {
         DBCategory.deleteAll();
         DBTag.deleteAll();
         DBVisitor.deleteAll();
-        DBImage.deleteAll();
         DBArticle.deleteAll();
         DBWriter.deleteAll();
+        DBImage.deleteAll();
+
 
         Category category1 = new Category("Family");
         DBHelper.save(category1);
