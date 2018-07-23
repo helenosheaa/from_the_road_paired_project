@@ -1,7 +1,9 @@
 package controllers;
 
 import db.Seeds;
+import db.helpers.DBArticle;
 import db.helpers.DBCategory;
+import models.Article;
 import models.Category;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -31,6 +33,9 @@ public class HomeController {
 
             List<Category> categories = DBCategory.getAll();
             model.put("categories", categories);
+
+            List<Article> topThreeArticles = DBArticle.getArticlesByVisit().subList(0, 3);
+            model.put("topThreeArticles", topThreeArticles);
 
             return new ModelAndView(model, "templates/visitor_layout.vtl");
         }, new VelocityTemplateEngine());

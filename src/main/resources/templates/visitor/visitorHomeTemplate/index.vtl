@@ -1,0 +1,32 @@
+<ul>
+    #foreach ($article in $topThreeArticles)
+
+    <li>
+        <div>
+            <a href="/article/$article.getId()"><h2>$article.getTitle()</h2></a>
+
+
+            <p>$article.getSummary()</p>
+
+            #foreach($category in $articleCategories.get($article.getId()))
+
+            <a href="/category/$category.getId()"><p>$category.getName()</p></a>
+
+            #end
+
+            #foreach($tag in $articleTags.get($article.getId()))
+
+            <a href="/tag/$tag.getId()"><p>$tag.getName()</p></a>
+
+            #end
+
+            <p>$article.dateFormatted()</p>
+
+            <a href="/writer/$article.getAuthor().getId()"><p>$article.getAuthor().getName()</p></a>
+
+        </div>
+
+    </li>
+
+    #end
+</ul>
