@@ -243,10 +243,13 @@ public class ArticleController {
 
             String summary = req.queryParams("summary");
 
-            Article article = new Article(title, author, content, summary);
-
             int articleId = Integer.parseInt(req.params(":id"));
-            article.setId(articleId);
+            Article article = DBArticle.find(articleId);
+
+            article.setTitle(title);
+            article.setAuthor(author);
+            article.setContent(content);
+            article.setSummary(summary);
 
             try {
                 String[] categoryIds = req.queryMap("categoryIds").values();
