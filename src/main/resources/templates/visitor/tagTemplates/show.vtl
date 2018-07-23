@@ -1,11 +1,24 @@
 <p class="page-header">$tag.getName()</p>
 
-<div class="tag-wrap"
-#foreach($article in $articles)
+<div class="tag-wrap">
+    #set($selectedArticles = $articles.subList($start, $end))
+    #foreach($article in $selectedArticles)
     <a href="/article/$article.getId()"><p>$article.getTitle()</p></a>
     <p>$article.getSummary()</p>
 #end
-></div>
+</div>
+
+<div class="pagination">
+    #if($isntStartPage)
+    <a href="/tag/$tag.getId()/$previousPage">&laquo;</a>
+    #end
+    #foreach($page in $pages.entrySet())
+    <a href="/tag/$tag.getId()/$page.key">$page.key</a>
+    #end
+    #if($isntEndPage)
+    <a href="/tag/tag.getId()/$nextPage">&raquo;</a>
+    #end
+</div>
 
 
 

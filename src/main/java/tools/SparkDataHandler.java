@@ -23,7 +23,11 @@ public abstract class SparkDataHandler {
         }
         if (extraArticles != 0){
             int page = numberOfPages + 1;
-            startIndex = pages.get(numberOfPages).get("end");
+            if(numberOfPages == 0){
+                startIndex = 0;
+            }else {
+                startIndex = pages.get(numberOfPages).getOrDefault("end", 0);
+            }
             endIndex = startIndex + extraArticles;
             Map<String, Integer> startAndEnd = new HashMap<>();
             startAndEnd.put("start", startIndex);

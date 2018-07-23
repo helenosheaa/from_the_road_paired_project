@@ -8,6 +8,7 @@ import models.Category;
 import models.Tag;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
+import tools.SparkDataHandler;
 
 import java.util.HashMap;
 import java.util.List;
@@ -27,7 +28,7 @@ public class TagController {
         VelocityTemplateEngine velocityTemplateEngine = new VelocityTemplateEngine();
 
 //      SHOW
-        get("/tag/:id", (req, res) -> {
+        get("/tag/:id/:page", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/visitor/tagTemplates/show.vtl");
             List<Category> navBarCategories = DBCategory.getAll();
@@ -39,6 +40,35 @@ public class TagController {
 
             List<Article> articles = DBTag.getArticlesForTag(tag);
             model.put("articles", articles);
+
+            if(articles.size() != 0) {
+                int numberOnAPage = 3;
+                Map<Integer, Map<String, Integer>> pages = SparkDataHandler.getPagesForList(articles, numberOnAPage);
+
+                int pageNumber = Integer.parseInt(req.params(":page"));
+                Map<String, Integer> page = pages.get(pageNumber);
+                int start = page.get("start");
+                int end = page.get("end");
+
+                boolean isntStartPage = !(pageNumber == 1);
+                boolean isntEndPage = !(pageNumber == pages.size());
+
+                if (isntStartPage) {
+                    int previousPage = pageNumber - 1;
+                    model.put("previousPage", previousPage);
+                }
+
+                if (isntEndPage) {
+                    int nextPage = pageNumber + 1;
+                    model.put("nextPage", nextPage);
+                }
+
+                model.put("isntStartPage", isntStartPage);
+                model.put("isntEndPage", isntEndPage);
+                model.put("pages", pages);
+                model.put("start", start);
+                model.put("end", end);
+            }
 
             return new ModelAndView(model, "templates/visitor_layout.vtl");
         }, velocityTemplateEngine);
