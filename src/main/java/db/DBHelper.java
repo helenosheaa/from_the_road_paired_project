@@ -5,6 +5,7 @@ import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
@@ -200,5 +201,21 @@ public class DBHelper {
             objects.add(object);
         }
         return objects;
+    }
+
+    protected static <T> List<T> searchForAll(String searchTerm, Class<T> searchingClass, String propertyName){
+        List<T> results = null;
+        session = HibernateUtil.getSessionFactory().openSession();
+
+        try {
+            Criteria cr = session.createCriteria(searchingClass);
+            cr.add(Restrictions.ilike(propertyName, searchTerm, MatchMode.ANYWHERE));
+            results = cr.list();
+        } catch(Throwable e){
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return results;
     }
 }

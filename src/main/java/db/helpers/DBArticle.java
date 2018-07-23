@@ -76,4 +76,8 @@ public class DBArticle extends DBHelper {
         return getMapOfAssociationsForObjects(Article.class, Category.class, "articles");
     }
 
+    public static List<Article> searchByTitle(String searchTerm){
+        return searchForAll(searchTerm, Article.class, "title");
+    }
+
 }
