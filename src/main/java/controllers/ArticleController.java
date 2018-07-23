@@ -33,15 +33,39 @@ public class ArticleController {
         VelocityTemplateEngine velocityTemplateEngine = new VelocityTemplateEngine();
 
 //      INDEX
-        get("/articles/:start/:end", (req, res) -> {
+        get("/articles/:page", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/visitor/articleTemplates/index.vtl");
 
             List<Article> articles = DBArticle.getArticlesByDate();
             model.put("articles", articles);
 
-            Map<Integer, List<Integer>> pages = SparkDataHandler.getPagesForList(articles, 3);
+            int numberOnAPage = 3;
+            Map<Integer, Map<String, Integer>> pages = SparkDataHandler.getPagesForList(articles, numberOnAPage);
+
+            int pageNumber = Integer.parseInt(req.params(":page"));
+            Map<String, Integer> page = pages.get(pageNumber);
+            int start = page.get("start");
+            int end = page.get("end");
+
+            boolean isntStartPage = !(pageNumber == 1);
+            boolean isntEndPage = !(pageNumber == pages.size());
+
+            if(isntStartPage){
+                int previousPage = pageNumber - 1;
+                model.put("previousPage", previousPage);
+            }
+
+            if(isntEndPage){
+                int nextPage = pageNumber + 1;
+                model.put("nextPage", nextPage);
+            }
+
+            model.put("isntStartPage", isntStartPage);
+            model.put("isntEndPage", isntEndPage);
             model.put("pages", pages);
+            model.put("start", start);
+            model.put("end", end);
 
             Map<Integer, List<Tag>> articleTags = DBArticle.getMapOfTagsForArticles();
             model.put("articleTags", articleTags);

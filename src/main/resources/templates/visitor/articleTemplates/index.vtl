@@ -32,6 +32,17 @@
 
         #end
     </ul>
+    <div class="pagination">
+        #if($isntStartPage)
+            <a href="/articles/$previousPage">&laquo;</a>
+        #end
+        #foreach($page in $pages.entrySet())
+            <a href="/articles/$page.key">$page.key</a>
+        #end
+        #if($isntEndPage)
+            <a href="/articles/$nextPage">&raquo;</a>
+        #end
+    </div>
 
 
 </div>
