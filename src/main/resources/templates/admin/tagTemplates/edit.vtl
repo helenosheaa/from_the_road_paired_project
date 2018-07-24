@@ -2,9 +2,13 @@
 
 <div class="form-wrap">
 <form action="/admin/tag/update/$tag.getId()" method="post">
+    <div class="form">
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" required value="$tag.getName()">
+    </div>
 
+    <div class="form">
     <input class="btn" type="submit" value="Update Tag">
+    </div>
 </form>
 </div>
