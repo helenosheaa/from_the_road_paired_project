@@ -204,4 +204,5 @@ width: 100%;
 
 .article-select-image{
 height: 30vh;
+display: inline-block;
 }

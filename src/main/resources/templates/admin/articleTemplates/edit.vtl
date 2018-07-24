@@ -61,7 +61,7 @@
     <ul id="image_list">
         #foreach($image in $images)
         <li>
-            <input type="radio" id="image_$image.getId()" name="imageId" value="$image.getId()" #if($article.getMainImage().getId() == $image.getId()) checked #end >
+            <input type="radio" id="image_$image.getId()" name="imageId" value="$image.getId()" #if($article.getMainImage().getId() == $image.getId()) checked #end required>
             <label for="image_$image.getId()"><img src="$image.getRoute()" alt="$image.getAltText()" class="article-select-image"></label>
         </li>
         #end
