@@ -2,11 +2,17 @@
 
 <div class="form-wrap">
 <form action="/admin/writer/update/$writer.getId()" method="post">
+    <div class="form">
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" required value="$writer.getName()">
+    </div>
 
+    <div class="form">
     <input type="text" id="blurb" name="blurb" required value="$writer.getBlurb()">
+    </div>
 
+    <div class="form">
     <input class="btn" type="submit" value="Update Writer">
+    </div>
 </form>
 </div>

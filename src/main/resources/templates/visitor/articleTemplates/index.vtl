@@ -1,4 +1,5 @@
-<p class="page-header">Hot Off The Press:</p>
+<p class="page-header">Hot Off The Press</p>
+<div class="article-wrapper">
 
     <ul>
         #set($selectedArticles = $articles.subList($start, $end))
@@ -31,12 +32,12 @@
                 <a href="/writer/$article.getAuthor().getId()/1"><p>$article.getAuthor().getName()</p></a>
             </div>
 
-            </div>
 
         </li>
 
         #end
     </ul>
+
     <div class="pagination">
         #if($isntStartPage)
             <a href="/articles/$previousPage">&laquo;</a>

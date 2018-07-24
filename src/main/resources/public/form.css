@@ -1,9 +1,62 @@
 .form {
-}
-
-.form-wrap {
+  display: block;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  display: inline-block;
+  margin-top: 20px;
+  font-family: 'Markazi Text', serif;
+  font-weight: 300;
+  font-size: 1.2em;
+}
+
+.form-wrap .form input[type="submit" i] {
+align-items: center;
+margin-left: auto;
+margin-right: auto;
+display: block;
+font-family: 'Markazi Text', serif;
+font-weight: 300;
+font-size: 1.2em;
+outline: none;
+}
+
+.form-wrap .form label {
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+font-family: 'Markazi Text', serif;
+  font-weight: 300;
+  font-size: 1.2em;
+}
+
+.drop-down {
+font-family: 'Markazi Text', serif;
+  font-weight: 300;
+  font-size: 1.2em;
+color: #787C79;
+  background-color: #B9B2A9;
+  outline: none;
+}
+
+.drop-down:hover {
+  color: #9E7C52;
+}
+select:active, select:hover {
+  outline: none;
+}
+
+.drop-down option:hover{
+  background: #9E7C52;
+}
+
+.drop-down input {
+  background: #9E7C52;
+}
+
+.form input {
+font-family: 'Markazi Text', serif;
+  font-weight: 300;
+  font-size: 1.2em;
+  outline: none;
 }

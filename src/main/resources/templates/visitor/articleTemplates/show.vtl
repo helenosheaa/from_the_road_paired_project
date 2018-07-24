@@ -1,11 +1,11 @@
-
-<h2 class="article-title">$article.getTitle()</h2>
+<div class ="individual-wrapper">
+<h4 class="article-title">$article.getTitle()</h4>
 
 <p class="summary">$article.getSummary()</p>
 
 <div class="article-add-ons">
 <form action="/article/clapped/$article.getId()" method="POST">
-    <input type="submit" value="Clap! $article.getVisitCounter()">
+    <input class="btn" type="submit" value="Clap! $article.getVisitCounter()">
 </form>
 
 #foreach($category in $categories)
@@ -49,7 +49,6 @@
         </li>
     </ul>
 </div>
-
 
 
 
