@@ -10,22 +10,33 @@ text-align: left;
 color: #787C79;
 }
 
-.header{
-font-size: 2.0em;
-margin-left: 1051px;
+h4{
+font-family: 'Amatic SC', cursive;
+font-weight: 300;
+color: #787C79;
+font-size: 1.8em;
 }
 
 .footer{
 font-size: 2.0em;
-text-align: right;
+float: left;
 height: 50px;
+display: inline-block;
+justify-content: space-around;
+}
+
+.sign-up{
+text-align:center;
+
 }
 
 .fancy-title {
-font-size: 10.8em;
+font-size: 7.8em;
 font-family: 'Amatic SC', cursive;
 font-weight: 400;
 text-align: center;
+padding: 1;
+margin: 0 0px;
 }
 
 .fancy-title:hover {
@@ -35,7 +46,7 @@ text-align: center;
 p {
 font-family: 'Markazi Text', serif;
 font-weight: 300;
-font-size: 1.2em;
+font-size: 1.6em;
 text-align: center;
 color: #2C3539;
 }
@@ -54,7 +65,7 @@ color: #9E7C52;
 }
 
 .selected {
-background-color: #835F27;
+background-color: #9E7C52;
 outline: none;
 }
 
@@ -62,12 +73,13 @@ nav {
 padding: 0;
 margin: 0 0px;
 text-align: center;
-background-color: #8BA870;
-color: #2C3539;
+background-color: #B9B2A9;
 display: flex;
 justify-content: space-around;
 font-family: 'Amatic SC', cursive;
 font-size: 3em;
+font-weight: 400;
+color: #9E7C52;
 }
 
 ul li {
@@ -127,6 +139,16 @@ list-style-type: none;
     float: left;
     padding: 8px 16px;
     text-decoration: none;
+    font-size: 2.8em;
+}
+
+.pagination a.active {
+    background-color: #9E7C52;
+    color: #2C3539;
+}
+
+.pagination a:hover:not(.active) {
+background-color: #F0F0F0;
 }
 
 #content {

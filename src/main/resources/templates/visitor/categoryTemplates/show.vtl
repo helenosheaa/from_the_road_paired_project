@@ -3,7 +3,7 @@
 
 <div class="category-wrap">
 #foreach($article in $articles)
-    <a href="/article/$article.getId()"><p>$article.getTitle()</p></a>
+    <a href="/article/$article.getId()"><p class="article-title">$article.getTitle()</p></a>
     <p>$article.getSummary()</p>
 #end
 
