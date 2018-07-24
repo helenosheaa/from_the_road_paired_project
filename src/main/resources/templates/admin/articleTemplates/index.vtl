@@ -1,19 +1,21 @@
 <h2 class="page-header">All Articles</h2>
 
-<ul class="edit-container">
+<ul class="article-wrapper">
     #foreach($article in $articles)
-    <li>
-        <a href="/admin/article/$article.getId()"><h3>$article.getTitle()</h3></a>
+
+    <li class="article-list-view">
+
+        <a href="/admin/article/$article.getId()"><h3 class="article-title">$article.getTitle()</h3></a>
+
+        <a class="big-link" href="/admin/article/edit/$article.getId()">Edit</a>
+
+        <div class="article-add-ons">
+        <a href="/admin/writer/$article.getAuthor().getId()"><p>$article.getAuthor().getName()</p></a>
 
         <p>$article.dateFormatted()</p>
 
         <p>$article.getSummary()</p>
 
-        <p>$article.getVisitCounter()</p>
-
-        <a href="/admin/article/edit/$article.getId()">Edit</a>
-
-        <div class="side-bar-left"
             #foreach($category in $articleCategories.get($article.getId()))
                 <a href="/admin/category/$category.getId()"><p class="article_category_name">$category.getName()</p></a>
             #end
@@ -21,8 +23,6 @@
             #foreach($tag in $articleTags.get($article.getId()))
                 <a href="/admin/tag/$tag.getId()"><p class="article_tag_name">$tag.getName()</p></a>
             #end
-
-            <a href="/admin/writer/$article.getAuthor().getId()"><p>$article.getAuthor().getName()</p></a>
 
     </li>
     #end
