@@ -186,7 +186,7 @@ width: 100%;
 
 .search-bar {
 font-family: 'Amatic SC', cursive;
-font-size: 3em;
+font-size: 2em;
 background-color: #B9B2A9;
 font-weight: 400;
 color: #9E7C52;
@@ -207,4 +207,5 @@ padding-left: auto;
 
 .searching{
 margin-left: auto;
+padding: 3.2vh;
 }
