@@ -10,7 +10,6 @@
             #foreach($article in $categoryArticles.get($category.getId()))
             <li>
                 <a href="/admin/article/$article.getId()"><h3>$article.getTitle()</h3></a>
-                <p>$article.getVisitCounter()</p>
 
             </li>
             #end
