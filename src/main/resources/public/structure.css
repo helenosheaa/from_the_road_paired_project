@@ -201,3 +201,7 @@ display: block;
 display: inline;
 width: 100%;
 }
+
+.article-select-image{
+height: 30vh;
+}
