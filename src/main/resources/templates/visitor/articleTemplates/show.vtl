@@ -1,12 +1,15 @@
-<div class ="individual-wrapper">
-<h4 class="article-title">$article.getTitle()</h4>
+<div class="article-show-header">
+    <h2 class="article-title-show">$article.getTitle()</h2>
+    <form action="/article/clapped/$article.getId()" method="POST">
+        <input class="clap btn" type="submit" value="Clap! $article.getVisitCounter()">
+    </form>
+</div>
 
-<p class="summary">$article.getSummary()</p>
 
 <div class="article-add-ons">
-<form action="/article/clapped/$article.getId()" method="POST">
-    <input class="btn" type="submit" value="Clap! $article.getVisitCounter()">
-</form>
+
+    <a href="/writer/$article.getAuthor().getId()/1"><p>$article.getAuthor().getName()</p></a>
+    <p>$article.dateFormatted()</p>
 
 #foreach($category in $categories)
     <a href="/category/$category.getId()/1"><p>$category.getName()</p></a>
@@ -16,12 +19,11 @@
     <a href="/tag/$tag.getId()/1"><p>$tag.getName()</p></a>
 #end
 
-<p>$article.dateFormatted()</p>
-<a href="/writer/$article.getAuthor().getId()/1"><p>$article.getAuthor().getName()</p></a>
     </div>
-<div class="show-image">
-    <img src="$article.getMainImage().getRoute()" alt="$article.getMainImage().getAltText()">
-</div>
+
+<p class="summary">$article.getSummary()</p>
+
+    <img src="$article.getMainImage().getRoute()" alt="$article.getMainImage().getAltText()" class="show-image">
 <div class = "article-body">
 <p>$article.getContent()</p>
 </div>

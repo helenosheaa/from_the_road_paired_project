@@ -182,3 +182,22 @@ display: block;
 font-family: 'Amatic SC', cursive;
 font-size: 3em;
 }
+
+.show-image{
+height: 60vh;
+}
+
+.article-title-show {
+font-family: 'Amatic SC', cursive;
+font-size: 3em;
+display: block;
+}
+
+.clap {
+display: block;
+}
+
+.article-show-header{
+display: inline;
+width: 100%;
+}
