@@ -1,17 +1,20 @@
 <p class="page-header">$writer.getName()</p>
 
-<div class="writer-wrap">
 <p>$writer.getBlurb()</p>
 
-    #set($selectedArticles = $articles.subList($start, $end))
-    #foreach($article in $selectedArticles)
-        <a href="/article/$article.getId()"><p>$article.getTitle()</p></a>
-    <div class="index-image">
-        <img src="$article.getMainImage().getRoute()" alt="$article.getMainImage().getAltText()">
-    </div>
-        <p>$article.getSummary()</p>
-    #end
-</div>
+    <ul class="article-wrapper">
+        #set($selectedArticles = $articles.subList($start, $end))
+        #foreach($article in $selectedArticles)
+        <li class="article-list-view">
+
+            <a href="/article/$article.getId()"><h3 class="article-title-index">$article.getTitle()</h3></a>
+
+                <img src="$article.getMainImage().getRoute()" alt="$article.getMainImage().getAltText()" class="index-image">
+
+            <p>$article.getSummary()</p>
+        </li>
+        #end
+    </ul>
 
 <div class="pagination">
     #if($isntStartPage)

@@ -4,10 +4,8 @@
 <ul>
     #foreach ($article in $topThreeArticles)
 
-    <li>
-        <div class ="home-image">
-            <img src="$article.getMainImage().getRoute()" alt="$article.getMainImage().getAltText()">
-        </div>
+    <li class="article-info-card">
+            <img src="$article.getMainImage().getRoute()" alt="$article.getMainImage().getAltText()" class ="home-image">
         <div class="article-title">
             <a href="/article/$article.getId()"><h2>$article.getTitle()</h2></a>
         </div>

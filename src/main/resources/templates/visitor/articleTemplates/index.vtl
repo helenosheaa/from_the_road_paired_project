@@ -1,20 +1,17 @@
 <p class="page-header">Hot Off The Press</p>
-<div class="article-wrapper">
 
-    <ul>
+    <ul class="article-wrapper">
         #set($selectedArticles = $articles.subList($start, $end))
         #foreach($article in $selectedArticles)
-        <li>
-            <div class="article-title">
-                <a href="/article/$article.getId()"><h2>$article.getTitle()</h2></a>
-            </div>
-            <div class="index-image">
-                <img src="$article.getMainImage().getRoute()" alt="$article.getMainImage().getAltText()">
-            </div>
-            <div class="summary">
-                <p>$article.getSummary()</p>
-            </div>
+        <li class="article-list-view">
+
+                <a href="/article/$article.getId()"><h3 class="article-title-index">$article.getTitle()</h3></a>
             <div class="article-add-ons">
+
+                <a href="/writer/$article.getAuthor().getId()/1"><p>$article.getAuthor().getName()</p></a>
+
+                <p>$article.dateFormatted()</p>
+
                 #foreach($category in $articleCategories.get($article.getId()))
 
                 <a href="/category/$category.getId()/1"><p>$category.getName()</p></a>
@@ -26,12 +23,12 @@
                 <a href="/tag/$tag.getId()/1"><p>$tag.getName()</p></a>
 
                 #end
-
-                <p>$article.dateFormatted()</p>
-
-                <a href="/writer/$article.getAuthor().getId()/1"><p>$article.getAuthor().getName()</p></a>
             </div>
+                <img src="$article.getMainImage().getRoute()" alt="$article.getMainImage().getAltText()" class="index-image">
 
+            <div class="summary">
+                <p>$article.getSummary()</p>
+            </div>
 
         </li>
 
@@ -49,6 +46,3 @@
             <a href="/articles/$nextPage">&raquo;</a>
         #end
     </div>
-
-
-</div>

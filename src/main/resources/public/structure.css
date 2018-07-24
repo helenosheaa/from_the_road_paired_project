@@ -153,3 +153,32 @@ background-color: #F0F0F0;
 #content {
   align-items: center;
 }
+
+.home-image{
+height: 30vh;
+
+}
+
+.article-info-card{
+display: inline-block;
+width: 30vw;
+height: 100vh;
+vertical-align: top;
+padding: 0.2vw;
+}
+
+.article-list-view {
+height: 70vh;
+display: block;
+}
+
+.index-image {
+height: 50%;
+float: left;
+}
+
+.article-title-index{
+display: block;
+font-family: 'Amatic SC', cursive;
+font-size: 3em;
+}

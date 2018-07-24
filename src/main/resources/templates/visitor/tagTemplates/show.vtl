@@ -1,17 +1,18 @@
 <p class="page-header">$tag.getName()</p>
 
-<div class="tag-wrap">
-
+<ul class="article-wrapper">
     #set($selectedArticles = $articles.subList($start, $end))
     #foreach($article in $selectedArticles)
-    <a href="/article/$article.getId()"><p class="article-title">$article.getTitle()</p></a>
-    <div class="index-image">
-        <img src="$article.getMainImage().getRoute()" alt="$article.getMainImage().getAltText()">
-    </div>
+    <li class="article-list-view">
 
-    <p>$article.getSummary()</p>
-#end
-</div>
+        <a href="/article/$article.getId()"><h3 class="article-title-index">$article.getTitle()</h3></a>
+
+        <img src="$article.getMainImage().getRoute()" alt="$article.getMainImage().getAltText()" class="index-image">
+
+        <p>$article.getSummary()</p>
+    </li>
+    #end
+</ul>
 
 <div class="pagination">
     #if($isntStartPage)
