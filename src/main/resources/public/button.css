@@ -36,3 +36,7 @@ font-weight: 300;
 font-size: 2.2em;
 float: right;
 }
+
+.comment-btn {
+display: inline-block;
+}

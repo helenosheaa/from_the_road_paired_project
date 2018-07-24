@@ -40,12 +40,12 @@
             <form action="/comment/save/$article.getId()" method="post" class="comment-form">
 
                 <label for="user">User: </label>
-                <input type="text" id="user" name="user" placeholder="Username" required>
+                <input class="comments" type="text" id="user" name="user" placeholder="Username" required>
 
                 <label for="comment">Comment: </label>
-                <input type="text" id="comment" name="comment" placeholder="Type comment here" required>
+                <input class="comments" type="text" id="comment" name="comment" placeholder="Type comment here" required>
 
-                <input type="submit" value="Save">
+                <input class="btn comment-btn" type="submit" value="Save">
 
             </form>
         </li>

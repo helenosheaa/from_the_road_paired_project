@@ -209,3 +209,15 @@ padding-left: auto;
 margin-left: auto;
 padding: 3.2vh;
 }
+
+
+.comments{
+font-family: 'Amatic SC', cursive;
+font-size: 2em;
+font-weight: 400;
+color: #9E7C52;
+}
+
+.comment-form{
+display: flex;
+}
