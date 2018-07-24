@@ -27,30 +27,27 @@
 <div class = "article-body">
 <p>$article.getContent()</p>
 </div>
-
-<div class = "comments">
-    <ul>
-        #foreach($comment in $comments)
-            <li>
-                <p>$comment.getUser()</p>
-                <p>$comment.getComment()</p>
-            </li>
-        #end
-        <li>
-            <form action="/comment/save/$article.getId()" method="post" class="comment-form">
-
-                <label for="user">User: </label>
-                <input class="comments" type="text" id="user" name="user" placeholder="Username" required>
-
-                <label for="comment">Comment: </label>
-                <input class="comments" type="text" id="comment" name="comment" placeholder="Type comment here" required>
-
-                <input class="btn comment-btn" type="submit" value="Save">
-
-            </form>
+<ul>
+    #foreach($comment in $comments)
+         <li class="saved-comments">
+            <p class="comments">$comment.getUser()</p>
+            <p class="comments comments-body">$comment.getComment()</p>
         </li>
-    </ul>
-</div>
+    #end
+    <li>
+        <form action="/comment/save/$article.getId()" method="post" class="comment-form">
+
+            <label for="user" class="comments">User: </label>
+            <input class="comments" type="text" id="user" name="user" placeholder="Username" required>
+
+            <label for="comment" class="comments">Comment: </label>
+            <input class="comments comments-body" type="text" id="comment" name="comment" placeholder="Type comment here" required>
+
+            <input class="btn comment-btn" type="submit" value="Save">
+
+        </form>
+    </li>
+</ul>
 
 
 

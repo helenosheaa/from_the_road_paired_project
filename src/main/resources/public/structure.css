@@ -215,10 +215,15 @@ font-family: 'Amatic SC', cursive;
 font-size: 2em;
 font-weight: 400;
 color: #9E7C52;
+
 }
 
 .comment-form{
 display: flex;
+}
+
+.saved-comments{
+display: block;
 }
 
 .article-select-image{
@@ -228,4 +233,8 @@ display: inline-block;
 
 .image-list li{
 text-align: left;
+}
+
+.comments-body{
+display: block;
 }
