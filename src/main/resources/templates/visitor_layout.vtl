@@ -10,13 +10,16 @@
 </head>
 <body>
 <!-- begin inner template-->
+<div class="top">
 <a href="/"><h1 class="fancy-title">From The Road</h1></a>
 
-<form action="/articles/search/1" method="get">
-    <input type="text" placeholder="Search for articles" name="searchTerm">
 
-    <input type="submit" value="Search">
+<form class="searching" action="/articles/search/1" method="get">
+    <input class="search-bar" type="text" placeholder="Search for articles" name="searchTerm">
+
+    <input class="btn search-btn searching" type="submit" value="Search">
 </form>
+</div>
 
 <nav>
     <a href="/">Home</a>
