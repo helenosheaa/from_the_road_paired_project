@@ -184,6 +184,7 @@ display: inline;
 width: 100%;
 }
 
+<<<<<<< HEAD
 .search-bar {
 font-family: 'Amatic SC', cursive;
 font-size: 2em;
@@ -220,4 +221,13 @@ color: #9E7C52;
 
 .comment-form{
 display: flex;
+}
+
+.article-select-image{
+height: 30vh;
+display: inline-block;
+}
+
+.image-list li{
+text-align: left;
 }
