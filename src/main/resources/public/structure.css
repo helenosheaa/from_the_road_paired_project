@@ -206,3 +206,7 @@ width: 100%;
 height: 30vh;
 display: inline-block;
 }
+
+.image-list li{
+text-align: left;
+}
