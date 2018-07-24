@@ -229,3 +229,14 @@ display: inline-block;
 .image-list li{
 text-align: left;
 }
+
+.side-bar-right{
+display: inline-block;
+font-family: 'Amatic SC', cursive;
+font-size: 3em;
+font-weight: 400;
+}
+
+.edit-container{
+height: 10vh;
+}

@@ -1,0 +1,23 @@
+<div class = "admin-home">
+    <div class="side-bar-right">
+    <a href="/admin/article/new">Add Article</a>
+    <a href="/admin/writer/new">Add Writer</a>
+    <a href="/admin/category/new">Add Category</a>
+    <a href="/admin/tag/new">Add Tag</a>
+    </div>
+
+    <table class="edit-container">
+        <tr>
+        #foreach($article in $articles)
+
+           <td> <a href="/admin/article/$article.getId()"><h3>$article.getTitle()</h3></a></td>
+
+            <td><p>$article.getVisitCounter()</p></td>
+
+            <td><a href="/admin/article/edit/$article.getId()">Edit</a></td>
+
+        </tr>
+    #end
+</table>
+</div>
+</div>
