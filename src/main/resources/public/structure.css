@@ -235,6 +235,26 @@ display: inline-block;
 text-align: left;
 }
 
+
 .comments-body{
 display: block;
 }
+
+.side-bar-right{
+display: inline-block;
+font-family: 'Amatic SC', cursive;
+font-size: 3em;
+font-weight: 400;
+}
+
+.edit-container{
+height: 10vh;
+}
+
+.big-link {
+font-family: 'Amatic SC', cursive;
+font-weight: 300;
+color: #787C79;
+font-size: 1.8em;
+}
+
